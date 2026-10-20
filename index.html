@@ -1370,6 +1370,228 @@ button.rs-item:focus-visible{outline:none}
   .tm-role{font-size:.82rem}
 }
 
+
+/* ==== BRAND STORY PORTAL ==== */
+/* =====================================================================
+   SKY RE — BRAND STORY PORTAL
+   Home star → black-hole-inspired portal · exclusive Brand Story view
+   (EN / AR · Dark / Light · Desktop / Tablet / Mobile · reduced motion)
+   ===================================================================== */
+
+/* ---------- 1. HOME HERO — composition that keeps the star unobstructed ---------- */
+html{--bh-core:clamp(280px,29vw,430px)}
+.hero.hero--portal{height:auto;min-height:max(660px,100vh);min-height:max(660px,100svh);padding:0;display:flex;flex-direction:column;align-items:stretch;overflow:hidden}
+.hero--portal .hero-bg{inset:auto 0;top:var(--bh-bg-top,0px);height:var(--bh-bg-h,100%);transform-origin:var(--bh-ox,50%) var(--bh-oy,50%)}
+.hero--portal.bh-bg-masked .hero-bg{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%)}
+
+/* readability veils on the text sides — the centre stays clear for the star */
+.hero--portal::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,20,31,.66) 0%,rgba(0,20,31,.32) 28%,rgba(0,20,31,0) 41%,rgba(0,20,31,0) 59%,rgba(0,20,31,.32) 72%,rgba(0,20,31,.66) 100%)}
+[data-theme="light"] .hero--portal::before{
+  background:linear-gradient(90deg,rgba(245,241,235,.94) 0%,rgba(245,241,235,.78) 27%,rgba(245,241,235,0) 41%,rgba(245,241,235,0) 59%,rgba(245,241,235,.78) 73%,rgba(245,241,235,.94) 100%)}
+
+.bh-field{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block;opacity:0;transition:opacity 2.2s var(--out) .5s}
+body.ready .bh-field{opacity:1}
+
+.hero--portal .hero-in{position:relative;z-index:2;flex:1 0 auto;height:auto;
+  padding-top:clamp(92px,12vh,124px);padding-bottom:clamp(92px,12vh,124px);
+  display:grid;grid-template-columns:minmax(0,1fr) var(--bh-core) minmax(0,1fr);column-gap:clamp(10px,1.6vw,26px);align-items:center}
+.hero-col{position:relative;min-width:0}
+.hero-col--a{align-self:start;padding-top:clamp(0px,2vh,24px)}
+.hero-col--b{align-self:end;justify-self:end;width:100%;max-width:440px}
+.hero--portal .eyebrow{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:clamp(18px,2.4vh,26px);letter-spacing:normal;text-transform:none}
+[data-lang="en"] .hero--portal .eyebrow{letter-spacing:normal;text-transform:none;font-size:inherit}
+.hero--portal .eyebrow-brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-en);font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-l);line-height:1.2}
+[data-lang="ar"] .hero--portal .eyebrow-brand{font-family:var(--font-ar);font-size:14.5px;font-weight:700;letter-spacing:0}
+.hero--portal .eyebrow-pos{margin:0;max-width:34ch;padding-inline-start:13px;border-inline-start:1.5px solid rgba(194,165,111,.55);
+  font-size:clamp(.92rem,1.02vw,1.04rem);line-height:1.58;font-weight:400;letter-spacing:0;text-transform:none;color:rgba(243,234,217,.88)}
+[data-lang="ar"] .hero--portal .eyebrow-pos{font-family:var(--font-ar);line-height:1.72;max-width:36ch}
+[data-theme="light"] .hero--portal .eyebrow-brand{color:var(--gold)}
+[data-theme="light"] .hero--portal .eyebrow-pos{color:rgba(9,29,60,.82);border-inline-start-color:rgba(148,123,76,.55)}
+.hero--portal h1{font-size:clamp(2.2rem,3.3vw,3.9rem);max-width:none}
+[data-lang="ar"] .hero--portal h1{font-size:clamp(2.2rem,3.5vw,4rem);line-height:1.36}
+.hero--portal .lead{font-size:clamp(.95rem,1.05vw,1.06rem);margin-top:0;max-width:none;line-height:1.74}
+.hero--portal .hero-actions{margin-top:22px;gap:10px}
+.hero--portal .scroll-cue{position:absolute;z-index:2;left:50%;bottom:clamp(14px,2.6vh,26px);transform:translateX(-50%)}
+.hero--portal .scroll-cue span.ln{height:44px}
+body.ready .hero--portal .scroll-cue.fade{transform:translateX(-50%)}
+
+/* Home highlights — moved directly below the hero */
+.hero-band{position:relative;z-index:2;padding:clamp(26px,3.6vw,46px) 0 clamp(30px,4vw,56px)}
+.hero-band .hero-pillars{margin-top:0}
+.wr-block,.vision{scroll-margin-top:96px}
+
+/* ---------- 2. THE PORTAL STAR ---------- */
+.hero-core{position:relative;width:var(--bh-core);height:var(--bh-core);justify-self:center;align-self:center;display:grid;place-items:center;opacity:0;transition:opacity 1.8s var(--out) .4s}
+body.ready .hero-core{opacity:1}
+.bh-portal{position:relative;width:44%;aspect-ratio:1/1;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;outline:none;transform:translate3d(var(--bh-px,0px),var(--bh-py,0px),0)}
+.bh-portal:focus-visible::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--gold-l);box-shadow:0 0 0 5px rgba(194,165,111,.16)}
+.bh-star{width:clamp(52px,5.2vw,76px);height:auto;fill:#fff;overflow:visible;position:relative;z-index:2;
+  filter:drop-shadow(0 0 7px #fff) drop-shadow(0 0 24px rgba(194,165,111,.85)) drop-shadow(0 0 58px rgba(135,167,198,.9));
+  animation:bhBreath 5.4s ease-in-out infinite;transition:filter .7s var(--out)}
+@keyframes bhBreath{0%,100%{transform:scale(.9);opacity:.93}50%{transform:scale(1.04);opacity:1}}
+.hero-core.is-hover .bh-star,.bh-portal:focus-visible .bh-star{
+  filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 34px rgba(230,211,168,1)) drop-shadow(0 0 80px rgba(135,167,198,1))}
+.bh-hint{position:absolute;inset:6%;border-radius:50%;border:1px solid rgba(230,211,168,.4);pointer-events:none;animation:bhHint 3.8s var(--out) infinite}
+@keyframes bhHint{0%{transform:scale(.6);opacity:0}28%{opacity:.5}100%{transform:scale(1.22);opacity:0}}
+.bh-portal.bh-fire::before{content:"";position:absolute;inset:22%;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 24px rgba(230,211,168,.9);pointer-events:none;animation:bhFire .9s var(--out) forwards}
+@keyframes bhFire{from{transform:scale(.4);opacity:1}to{transform:scale(3.4);opacity:0}}
+
+.bh-label{position:absolute;left:50%;top:calc(50% + clamp(74px,7.4vw,104px));transform:translateX(-50%);white-space:nowrap;
+  display:flex;align-items:center;gap:12px;padding:8px 18px;border-radius:40px;
+  background:rgba(0,20,31,.5);border:1px solid rgba(194,165,111,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  font-family:var(--font-en);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;
+  color:#e6d3a8;opacity:.86;pointer-events:none;
+  transition:opacity .6s var(--out),letter-spacing .7s var(--out),color .6s,border-color .6s,background .6s}
+[data-lang="ar"] .bh-label{font-family:var(--font-ar);letter-spacing:0;font-size:13.5px;font-weight:600}
+.bh-label i{width:5px;height:5px;transform:rotate(45deg);background:var(--gold-l);opacity:.9;flex:none}
+.hero-core.is-hover .bh-label,.hero-core:focus-within .bh-label{opacity:1;color:#fff8ea;letter-spacing:.4em;border-color:rgba(230,211,168,.65);background:rgba(0,20,31,.66)}
+[data-lang="ar"] .hero-core.is-hover .bh-label,[data-lang="ar"] .hero-core:focus-within .bh-label{letter-spacing:0}
+[data-theme="light"] .bh-label{background:rgba(255,255,255,.8);color:#091d3c;border-color:rgba(148,123,76,.4);box-shadow:0 6px 18px rgba(9,29,60,.1)}
+[data-theme="light"] .bh-label i{background:var(--gold)}
+[data-theme="light"] .hero-core.is-hover .bh-label,[data-theme="light"] .hero-core:focus-within .bh-label{background:#fff;color:#091d3c;border-color:var(--gold)}
+
+/* ---------- 3. CINEMATIC STATES ON HOME ---------- */
+.hero--portal .hero-col,.hero--portal .scroll-cue{transition:opacity .8s var(--out),filter .8s var(--out),transform 1.1s var(--ease)}
+.hero--portal.bh-pulling .hero-col--a{opacity:0;filter:blur(8px);transform:translateX(70px) scale(.93)}
+.hero--portal.bh-pulling .hero-col--b{opacity:0;filter:blur(8px);transform:translateX(-70px) scale(.93)}
+[dir="rtl"] .hero--portal.bh-pulling .hero-col--a{transform:translateX(-70px) scale(.93)}
+[dir="rtl"] .hero--portal.bh-pulling .hero-col--b{transform:translateX(70px) scale(.93)}
+.hero--portal.bh-pulling .bh-label,.hero--portal.bh-pulling .scroll-cue{opacity:0}
+.hero--portal.bh-pulling .bh-hint{animation:none;opacity:0}
+.hero--portal.bh-pulling .hero-bg{transform:scale(1.45);transition:transform 1.9s cubic-bezier(.7,0,.84,0)}
+.hero--portal.bh-notrans,.hero--portal.bh-notrans *{transition:none!important}
+
+/* ---------- 4. BRAND STORY VIEW (exclusive · detached from the document while closed) ---------- */
+.bs-view{position:fixed;inset:0;z-index:44;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;outline:none;
+  background:radial-gradient(ellipse 75% 55% at 50% 32%,rgba(11,37,71,.9) 0%,rgba(0,20,31,0) 72%),#00141f;color:var(--cloud);-webkit-overflow-scrolling:touch}
+.bs-view[hidden]{display:none!important}
+[data-theme="light"] .bs-view{background:radial-gradient(ellipse 75% 55% at 50% 32%,rgba(255,255,255,.9) 0%,rgba(245,241,235,0) 72%),#f5f1eb;color:#091d3c}
+.bs-sky{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;display:block}
+.bs-scroll{position:relative;z-index:1;padding-top:clamp(98px,13vh,140px);transform-origin:var(--bs-ox,50%) var(--bs-oy,30%)}
+.bs-view.bs-arrive .bs-scroll{animation:bsArrive 1.6s var(--out) both}
+@keyframes bsArrive{from{transform:scale(1.16);filter:blur(10px);opacity:.15}to{transform:none;filter:none;opacity:1}}
+.bs-view.bs-leave .bs-scroll{transition:transform 1s var(--ease),filter 1s var(--ease),opacity 1s var(--ease);transform:scale(.88);filter:blur(8px);opacity:.3}
+.bs-view .bs-story .story-head{padding-bottom:clamp(20px,4vw,48px)}
+.bs-view .steps{padding-bottom:18vh}
+.bs-view .philo{border-top:1px solid rgba(243,234,217,.08);border-bottom:1px solid rgba(243,234,217,.08);background:rgba(9,29,60,.22)}
+.bs-view #geometry{padding-top:clamp(56px,7vw,110px)!important}
+[data-theme="light"] .bs-view .philo{border-color:rgba(9,29,60,.08);background:rgba(9,29,60,.025)}
+
+.bs-intro{padding-bottom:16px}
+.bs-kicker{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-en);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--sky)}
+[data-lang="ar"] .bs-kicker{font-family:var(--font-ar);letter-spacing:0;font-size:13px}
+.bs-kicker i{width:22px;height:1px;background:currentColor;opacity:.7}
+[data-theme="light"] .bs-kicker{color:#5a7fa0}
+
+.bs-end{position:relative;padding-top:clamp(40px,8vh,90px);padding-bottom:clamp(130px,20vh,190px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+.bs-end-star{width:34px;fill:#fff;filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 22px rgba(194,165,111,.8))}
+[data-theme="light"] .bs-end-star{fill:var(--gold);filter:drop-shadow(0 0 10px rgba(148,123,76,.5))}
+.bs-end-k{font-family:var(--font-en);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-l)}
+[data-lang="ar"] .bs-end-k{font-family:var(--font-ar);letter-spacing:0;font-size:13.5px}
+[data-theme="light"] .bs-end-k{color:var(--gold)}
+.bs-end-acts{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+/* Return to Home — portal-like control */
+.bs-return{position:fixed;z-index:3;inset-inline-start:var(--pad);bottom:max(22px,env(safe-area-inset-bottom));
+  display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:7px 20px 7px 7px;border-radius:40px;
+  border:1px solid rgba(194,165,111,.55);background:rgba(0,20,31,.74);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  color:var(--cloud);font-family:var(--font-en);font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;
+  box-shadow:0 12px 34px rgba(0,0,0,.35);transition:border-color .4s,box-shadow .4s,transform .4s var(--out),background .4s}
+[dir="rtl"] .bs-return{padding:7px 7px 7px 20px}
+[data-lang="ar"] .bs-return{font-family:var(--font-ar);letter-spacing:0;font-size:13.5px}
+.bs-return-ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:none;
+  background:radial-gradient(circle,#000a12 34%,rgba(0,10,18,.4) 62%,rgba(0,20,31,0) 74%);
+  box-shadow:inset 0 0 0 1px rgba(230,211,168,.5),0 0 16px rgba(194,165,111,.35)}
+.bs-return-ic svg{width:15px;fill:#fff;filter:drop-shadow(0 0 4px #fff);transition:transform .7s var(--out)}
+.bs-return:hover,.bs-return:focus-visible{border-color:var(--gold-l);transform:translateY(-2px);box-shadow:0 14px 38px rgba(0,0,0,.4),0 0 0 4px rgba(194,165,111,.14);outline:none}
+.bs-return:hover .bs-return-ic svg,.bs-return:focus-visible .bs-return-ic svg{transform:rotate(45deg) scale(.86)}
+[data-theme="light"] .bs-return{background:rgba(255,255,255,.88);color:#091d3c;border-color:rgba(148,123,76,.55);box-shadow:0 12px 30px rgba(9,29,60,.12)}
+[data-theme="light"] .bs-return-ic{background:radial-gradient(circle,#091d3c 36%,rgba(9,29,60,.35) 62%,rgba(9,29,60,0) 74%)}
+
+/* chapter rail (desktop: vertical, in the page margin · mobile: bottom bar) */
+.bs-dots{position:fixed;z-index:3;inset-inline-end:clamp(12px,1.8vw,30px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding:10px 5px;border-radius:40px;background:rgba(0,20,31,.55);border:1px solid rgba(243,234,217,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.bs-dot{width:26px;height:26px;display:grid;place-items:center;border-radius:50%}
+.bs-dot::before{content:"";width:7px;height:7px;border-radius:50%;background:rgba(243,234,217,.3);transition:transform .4s var(--out),background .4s,box-shadow .4s}
+.bs-dot:hover::before{background:rgba(243,234,217,.7)}
+.bs-dot.on::before{background:var(--gold-l);box-shadow:0 0 10px rgba(194,165,111,.75);transform:scale(1.35)}
+.bs-dot:focus-visible,.bs-ch:focus-visible{outline:1px solid var(--gold-l);outline-offset:-3px}
+.bs-sep{width:14px;height:1px;background:rgba(243,234,217,.18);margin:4px 0;display:block}
+.bs-ch{width:26px;height:24px;border-radius:12px;display:grid;place-items:center;font-family:var(--font-en);font-size:9.5px;letter-spacing:.04em;color:rgba(243,234,217,.52);transition:color .35s,background .35s,transform .35s}
+.bs-ch:hover{color:var(--cloud)}
+.bs-ch.on{color:var(--gold-l);background:rgba(194,165,111,.16);font-weight:600}
+.bs-count{font-family:var(--font-en);font-size:9.5px;letter-spacing:.06em;color:var(--gold-l);margin-top:6px;direction:ltr;text-align:center;line-height:1.3;white-space:nowrap}
+[data-theme="light"] .bs-dots{background:rgba(255,255,255,.82);border-color:rgba(9,29,60,.12)}
+[data-theme="light"] .bs-dot::before{background:rgba(9,29,60,.25)}
+[data-theme="light"] .bs-dot.on::before{background:var(--gold);box-shadow:0 0 8px rgba(148,123,76,.5)}
+[data-theme="light"] .bs-sep{background:rgba(9,29,60,.15)}
+[data-theme="light"] .bs-ch{color:rgba(9,29,60,.5)}
+[data-theme="light"] .bs-ch.on{color:var(--gold);background:rgba(148,123,76,.14)}
+[data-theme="light"] .bs-count{color:var(--gold)}
+
+/* iris ring overlay — exists only during the transition */
+.bh-iris{position:fixed;inset:0;width:100%;height:100%;z-index:46;pointer-events:none;display:block}
+
+/* while the portal is open: solid header, page underneath fully hidden & inert */
+html.bs-lock,html.bs-lock body{overflow:hidden!important}
+html.bs-lock body{padding-right:var(--bs-sbw,0px)}
+html.bs-lock nav.top{right:var(--bs-sbw,0px)}
+html.bs-open main{visibility:hidden}
+html.bs-open nav.top{background:rgba(0,20,31,.86);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);border-bottom-color:rgba(243,234,217,.09)}
+html[data-theme="light"].bs-open nav.top{background:rgba(245,241,235,.92);box-shadow:0 1px 6px rgba(9,29,60,.06)}
+
+/* ---------- 5. RESPONSIVE ---------- */
+@media (max-width:1100px){
+  html{--bh-core:clamp(230px,58vw,330px)}
+  .hero.hero--portal{height:auto;min-height:100vh;min-height:100svh}
+  .hero--portal .hero-in{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;row-gap:0;align-items:start;
+    padding-top:clamp(92px,13vh,122px);padding-bottom:clamp(40px,6vh,64px)}
+  .hero-col--a{align-self:start;padding-top:0;text-align:center}
+  .hero--portal .eyebrow{align-items:center}
+  .hero--portal .eyebrow-pos{border-inline-start:0;padding-inline-start:0;max-width:44ch;margin-inline:auto;text-align:center}
+  .hero--portal h1{margin-inline:auto;max-width:14ch}
+  .hero-core{margin:4px auto 6px}
+  .hero-col--b{justify-self:center;max-width:600px}
+  .hero--portal .scroll-cue{display:none}
+  .hero--portal::before{background:linear-gradient(180deg,rgba(0,20,31,.6) 0%,rgba(0,20,31,.3) calc(var(--bh-cy,45%) - 22%),rgba(0,20,31,0) calc(var(--bh-cy,45%) - 11%),rgba(0,20,31,0) calc(var(--bh-cy,45%) + 11%),rgba(0,20,31,.4) calc(var(--bh-cy,45%) + 22%),rgba(0,20,31,.78) 100%)}
+  [data-theme="light"] .hero--portal::before{background:linear-gradient(180deg,rgba(245,241,235,.94) 0%,rgba(245,241,235,.8) calc(var(--bh-cy,45%) - 23%),rgba(245,241,235,0) calc(var(--bh-cy,45%) - 12%),rgba(245,241,235,0) calc(var(--bh-cy,45%) + 12%),rgba(245,241,235,.82) calc(var(--bh-cy,45%) + 23%),rgba(245,241,235,.95) 100%)}
+  .hero--portal.bh-pulling .hero-col--a,[dir="rtl"] .hero--portal.bh-pulling .hero-col--a{transform:translateY(50px) scale(.94)}
+  .hero--portal.bh-pulling .hero-col--b,[dir="rtl"] .hero--portal.bh-pulling .hero-col--b{transform:translateY(-50px) scale(.94)}
+}
+@media (max-width:820px){
+  .bs-view .step{padding-bottom:calc(6vh + 84px)}
+  .bs-view::after{content:"";position:fixed;left:0;right:0;bottom:0;height:104px;z-index:2;pointer-events:none;
+    background:linear-gradient(0deg,#00141f 52%,rgba(0,20,31,0))}
+  [data-theme="light"] .bs-view::after{background:linear-gradient(0deg,#f5f1eb 52%,rgba(245,241,235,0))}
+  .bs-dots{top:auto;transform:none;bottom:max(24px,env(safe-area-inset-bottom));flex-direction:row;padding:4px 10px 4px 6px}
+  [dir="rtl"] .bs-dots{padding:4px 6px 4px 10px}
+  .bs-dot{width:22px;height:22px}
+  .bs-sep{width:1px;height:12px;margin:0 3px}
+  .bs-ch{width:22px;height:22px;font-size:9px}
+  .bs-count{margin:0 0 0 6px}
+  [dir="rtl"] .bs-count{margin:0 6px 0 0}
+  .bs-return{bottom:max(20px,env(safe-area-inset-bottom))}
+}
+@media (max-width:560px){
+  .hero--portal h1{font-size:clamp(2rem,9.4vw,2.6rem)}
+  [data-lang="ar"] .hero--portal h1{font-size:clamp(1.95rem,9vw,2.5rem)}
+  .hero--portal .eyebrow-brand{font-size:11px;letter-spacing:.22em}
+  .hero--portal .eyebrow-pos{font-size:.9rem;line-height:1.52}
+  .hero--portal .hero-actions a{width:100%;justify-content:center}
+  .bh-label{font-size:9.5px;letter-spacing:.24em;padding:7px 14px}
+  .bs-return{font-size:10px;letter-spacing:.16em;padding-inline-end:16px;min-height:46px}
+  [dir="rtl"] .bs-return{padding-inline-end:7px;padding-inline-start:16px}
+  .bs-return-ic{width:30px;height:30px}
+  .bs-count,.bs-sep,.bs-ch{display:none}
+  .bs-dot{width:21px;height:21px}
+}
+@media (prefers-reduced-motion:reduce){
+  .bh-star,.bh-hint{animation:none!important}
+  .bh-hint{opacity:.35;transform:none}
+}
+
 </style>
 </head>
 <body class="is-loading">
@@ -1429,9 +1651,8 @@ button.rs-item:focus-visible{outline:none}
       <div class="nav-drop" role="menu">
         <a href="#who-we-are"><span><span class="ar">من نحن</span><span class="en">Who We Are</span></span><small>01</small></a>
         <a href="#mga-model"><span><span class="ar">ما هي وكالة الاكتتاب (MGA)؟</span><span class="en">What Is a Reinsurance MGA?</span></span><small>Model</small></a>
-        <a href="#our-role"><span><span class="ar">دور سكاي ري</span><span class="en">The Role of Sky Re</span></span><small>Value</small></a>
+        <a href="#our-role"><span><span class="ar">القيمة التي نقدمها</span><span class="en">Our Value Proposition</span></span><small>Value</small></a>
         <a href="#vision-box"><span><span class="ar">رؤيتنا 2030</span><span class="en">Our Vision 2030</span></span><small>2030</small></a>
-        <a href="#symbol-story"><span><span class="ar">قصة العلامة والرمز</span><span class="en">Brand Story &amp; Symbolism</span></span><small>02–06</small></a>
         <a href="#values"><span><span class="ar">قيمنا الجوهرية</span><span class="en">Our Core Values</span></span><small>07</small></a>
       </div>
     </li>
@@ -1476,8 +1697,8 @@ button.rs-item:focus-visible{outline:none}
       <div class="mob-sub">
         <a href="#who-we-are" data-mob-link><span class="ar">من نحن</span><span class="en">Who We Are</span></a>
         <a href="#mga-model" data-mob-link><span class="ar">ما هي وكالة الاكتتاب؟</span><span class="en">What Is an MGA?</span></a>
-        <a href="#our-role" data-mob-link><span class="ar">دورنا</span><span class="en">Our Role</span></a>
-        <a href="#symbol-story" data-mob-link><span class="ar">قصة الرمز</span><span class="en">Brand Story</span></a>
+        <a href="#our-role" data-mob-link><span class="ar">القيمة التي نقدمها</span><span class="en">Our Value Proposition</span></a>
+        <a href="#vision-box" data-mob-link><span class="ar">رؤيتنا 2030</span><span class="en">Our Vision 2030</span></a>
         <a href="#values" data-mob-link><span class="ar">القيم الجوهرية</span><span class="en">Core Values</span></a>
       </div>
     </li>
@@ -1505,32 +1726,43 @@ button.rs-item:focus-visible{outline:none}
 
 <main id="top">
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="home-hero" data-ch="00" data-ar="البداية" data-en="Home · Prologue">
+<!-- ================= HERO · BRAND STORY PORTAL ================= -->
+<section class="hero hero--portal" id="home-hero" data-ch="00" data-ar="البداية" data-en="Home · Prologue">
   <div class="hero-bg"></div>
-  <div class="hero-star"><svg viewBox="213 218 116 116"><use href="#star" fill="#fff"/></svg></div>
+  <canvas class="bh-field" id="bhField" aria-hidden="true"></canvas>
   <div class="hero-in wrap">
-    <div class="eyebrow fade"><span class="ar">سكاي ري®</span><span class="en">Sky Re®</span><i></i><span class="ar">وكالة الاكتتاب الرائدة محليًا لإعادة التأمين</span><span class="en">Pioneering Onshore P&amp;C Reinsurance MGA</span><i></i><span class="ar">الرياض، المملكة العربية السعودية</span><span class="en">Riyadh, Saudi Arabia</span></div>
-    <h1>
+    <div class="hero-col hero-col--a">
+      <div class="eyebrow fade">
+        <span class="eyebrow-brand"><span class="ar">سكاي ري®</span><span class="en">Sky Re®</span></span>
+        <p class="eyebrow-pos"><span class="ar">سكاي ري هي وكالة الاكتتاب العامة الرائدة محليًا في إعادة تأمين الممتلكات والحوادث في المملكة العربية السعودية.</span><span class="en">Sky Re is a pioneering onshore P&amp;C Reinsurance Managing General Agency in Saudi Arabia.</span></p>
+      </div>
+      <h1>
       <span class="ar"><span class="w" style="--i:0">حين</span> <span class="w" style="--i:1">تكتمل</span> <span class="w" style="--i:2">الشراكة</span><br><span class="w" style="--i:3">يولد</span> <span class="w" style="--i:4"><em>النجم.</em></span></span>
       <span class="en"><span class="w" style="--i:0">When</span> <span class="w" style="--i:1">partnership</span> <span class="w" style="--i:2">is</span> <span class="w" style="--i:3">complete,</span><br><span class="w" style="--i:4">a</span> <span class="w" style="--i:5"><em>star</em></span> <span class="w" style="--i:6">is</span> <span class="w" style="--i:7">born.</span></span>
     </h1>
-    <div class="hero-pos fade">
-      <span class="pos-k"><span class="ar">الهوية والمكانة المعتمدة · سلطة محلية وامتداد عالمي</span><span class="en">Approved Corporate Positioning · Local Authority. Global Reach.</span></span>
-      <p><span class="ar">«سكاي ري هي وكالة الاكتتاب العامة الرائدة محليًا في إعادة تأمين الممتلكات والحوادث في المملكة العربية السعودية.»</span><span class="en">“Sky Re is a pioneering onshore P&amp;C Reinsurance Managing General Agency in Saudi Arabia.”</span></p>
     </div>
-    <div class="hero-row">
-      <div>
-        <p class="lead fade"><span class="ar">نعمل نيابةً عن معيدي التأمين لاكتتاب مخاطر الممتلكات والحوادث التجارية المعقّدة في قلب الرياض — جامعين بين البصيرة التنظيمية والفنية المحلية والوصول المباشر إلى الطاقة الاكتتابية المحلية والدولية، حيث يلتقي الهلالان ليولد نجمٌ هادٍ جديد للسوق.</span><span class="en">Acting on behalf of reinsurers from the heart of Riyadh, we underwrite complex commercial P&amp;C risks — uniting deep onshore regulatory and technical authority with local and international reinsurance capacity, where two opposing crescents meet and a guiding star is born.</span></p>
-        <div class="hero-actions fade">
-          <a href="#portfolios" class="btn-gold"><span><span class="ar">استكشف المحافظ التأمينية (06)</span><span class="en">Explore Our Portfolios (06)</span></span><span>→</span></a>
+    <div class="hero-core" id="bhCore">
+      <!-- The ONLY entry point to the Brand Story: the Sky Re star as a black-hole portal -->
+      <button type="button" class="bh-portal" id="bhPortal" aria-label="Explore our Brand Story">
+        <span class="bh-hint" aria-hidden="true"></span>
+        <svg class="bh-star" viewBox="213 218 116 116" aria-hidden="true" focusable="false"><use href="#star"/></svg>
+      </button>
+      <span class="bh-label" aria-hidden="true"><i></i><span class="en">Explore Our Brand Story</span><span class="ar">اكتشف قصة هويتنا</span><i></i></span>
+    </div>
+    <div class="hero-col hero-col--b">
+      <p class="lead fade"><span class="ar">نعمل نيابةً عن معيدي التأمين لاكتتاب مخاطر الممتلكات والحوادث التجارية المعقّدة في قلب الرياض — جامعين بين البصيرة التنظيمية والفنية المحلية والوصول المباشر إلى الطاقة الاكتتابية المحلية والدولية، حيث يلتقي الهلالان ليولد نجمٌ هادٍ جديد للسوق.</span><span class="en">Acting on behalf of reinsurers from the heart of Riyadh, we underwrite complex commercial P&amp;C risks — uniting deep onshore regulatory and technical authority with local and international reinsurance capacity, where two opposing crescents meet and a guiding star is born.</span></p>
+      <div class="hero-actions fade">
           <a href="#company" class="btn-ghost"><span><span class="ar">تعرّف على سكاي ري ونموذج الـ MGA</span><span class="en">About Sky Re &amp; MGA Model</span></span></a>
-          <a href="#symbol-story" class="btn-ghost"><span><span class="ar">قصة الرمز</span><span class="en">The Brand Story</span></span></a>
+          <a href="#portfolios" class="btn-gold"><span><span class="ar">استكشف المحافظ التأمينية (06)</span><span class="en">Explore Our Portfolios (06)</span></span><span>→</span></a>
         </div>
-      </div>
-      <a href="#company" class="scroll-cue fade"><span class="ar">مرّر لتبدأ الرحلة</span><span class="en">Scroll to begin</span><span class="ln"></span></a>
     </div>
-    <div class="hero-pillars fade" aria-label="Sky Re Key Corporate Highlights">
+  </div>
+  <a href="#company" class="scroll-cue fade"><span class="ar">مرّر لتبدأ الرحلة</span><span class="en">Scroll to begin</span><span class="ln"></span></a>
+</section>
+
+<!-- Home highlights (moved below the hero so the portal star stays unobstructed) -->
+<div class="hero-band wrap">
+  <div class="hero-pillars rv" aria-label="Sky Re Key Corporate Highlights">
       <a href="#mga-model" class="h-pil">
         <div class="h-pil-top"><span>01 · MANDATE</span><span>MGA</span></div>
         <h3><span class="ar">صلاحية اكتتاب مفوّضة محليًا</span><span class="en">Onshore Delegated Authority</span></h3>
@@ -1546,14 +1778,13 @@ button.rs-item:focus-visible{outline:none}
         <h3><span class="ar">طاقة اكتتابية محلية ودولية</span><span class="en">Local &amp; Global Capacity</span></h3>
         <p><span class="ar">ربط شركات التأمين والوسطاء بشبكة رفيعة من معيدي التأمين لتعزيز الاحتفاظ المحلي وتنويع المخاطر.</span><span class="en">Connecting insurers with local and international reinsurance capacity for optimal risk distribution and scale.</span></p>
       </a>
-      <a href="#symbol-story" class="h-pil">
-        <div class="h-pil-top"><span>04 · PHILOSOPHY</span><span>SYMBOL</span></div>
+      <a href="#values" class="h-pil">
+        <div class="h-pil-top"><span>04 · VALUES</span><span>PROMISE</span></div>
         <h3><span class="ar">سلطة محلية · امتداد عالمي</span><span class="en">Local Authority · Global Reach</span></h3>
         <p><span class="ar">هلالان متناميان يلتقيان في المركز ليُشرق نجم سكاي ري: شراكةٌ متوائمة تتقاسم المخاطر والعوائد.</span><span class="en">Two waxing crescents joining at the centre to form the guiding star of Sky Re — co-aligned partnership in scale.</span></p>
       </a>
     </div>
-  </div>
-</section>
+</div>
 
 <div class="promise" aria-hidden="true">
   <div class="ticker">
@@ -1579,7 +1810,7 @@ button.rs-item:focus-visible{outline:none}
     </div>
 
     <!-- WR:BEGIN — Who We Are -->
-    <div class="wr-block" id="who-we-are">
+    <div class="wr-block" id="who-we-are" data-ch="01" data-ar="من نحن" data-en="Who We Are">
       <div class="wr-head">
         <div class="wr-k rv"><span class="l"></span><span class="ar">من نحن</span><span class="en">Who We Are</span></div>
         <h3 class="wr-h rv"><span class="ar">نربط <em>الطاقة الاكتتابية الدولية</em> بالخبرة المحلية</span><span class="en">Connecting <em>global capacity</em> with local expertise</span></h3>
@@ -1613,7 +1844,7 @@ button.rs-item:focus-visible{outline:none}
 
     
     <!-- ================= WHAT IS A REINSURANCE MGA? ================= -->
-    <div class="wr-block" id="mga-model">
+    <div class="wr-block" id="mga-model" data-ch="01" data-ar="ما هي وكالة الاكتتاب (MGA)؟" data-en="What Is a Reinsurance MGA?">
       <div class="wr-head wr-head--row">
         <div>
           <div class="wr-k rv"><span class="l"></span><span class="ar">نموذج العمل · ما هي وكالة الاكتتاب؟</span><span class="en">Business Model · What Is a Reinsurance MGA?</span></div>
@@ -1689,10 +1920,10 @@ button.rs-item:focus-visible{outline:none}
     </div>
 
     <!-- WR — Our Role -->
-    <div class="wr-block" id="our-role">
+    <div class="wr-block" id="our-role" data-ch="01" data-ar="القيمة التي نقدمها" data-en="Our Value Proposition">
       <div class="wr-head wr-head--row">
         <div>
-          <div class="wr-k rv"><span class="l"></span><span class="ar">دورنا</span><span class="en">Our Role</span></div>
+          <div class="wr-k rv"><span class="l"></span><span class="ar">القيمة التي نقدمها</span><span class="en">Our Value Proposition</span></div>
           <h3 class="wr-h rv"><span class="ar">ثمانية أدوار… <em>نصنع بها القيمة</em></span><span class="en">Eight ways we <em>create value</em></span></h3>
         </div>
         <p class="lead rv" style="--d:.1s"><span class="ar">من الاكتتاب المتخصص حتى وفورات الحجم — كيف تخدم سكاي ري شركات التأمين ومعيدي التأمين عبر دورة حياة المخاطر.</span><span class="en">From specialized underwriting to economies of scale — how SKY RE serves insurers and reinsurers across the life of a risk.</span></p>
@@ -1726,7 +1957,7 @@ button.rs-item:focus-visible{outline:none}
     </div>
     
     <!-- WR:END -->
-    <div class="vision rv" id="vision-box">
+    <div class="vision rv" id="vision-box" data-ch="01" data-ar="رؤيتنا 2030" data-en="Our Vision 2030">
       <svg class="ghost" viewBox="0 0 543.4 543.4" aria-hidden="true"><use href="#symbol"/></svg>
       <div class="vision-in">
         <div>
@@ -1746,207 +1977,6 @@ button.rs-item:focus-visible{outline:none}
   </div>
 </section>
 
-<!-- ================= 02 THE SYMBOL (sticky storytelling) ================= -->
-<section id="symbol-story" data-ch="02" data-ar="الرمز" data-en="The Symbol">
-  <div class="wrap story-head">
-    <div class="chap rv"><span class="n">02</span><span class="l"></span><span class="ar">قصة الرمز</span><span class="en">The Story of the Symbol</span></div>
-    <h2 class="big rv"><span class="ar">هلالان متقابلان… <em>ونجمٌ يولد</em> من اللقاء</span><span class="en">Two opposing crescents — <em>and a star</em> born of their joining</span></h2>
-  </div>
-  <div class="wrap">
-    <div class="story">
-      <div class="stage-wrap">
-        <div class="stage" id="stage" data-step="0">
-          <svg viewBox="-80 -80 703.4 703.4" aria-hidden="true">
-            <g class="grid-bg"><rect x="0" y="0" width="543.4" height="543.4"/><line x1="0" y1="0" x2="543.4" y2="543.4"/><line x1="543.4" y1="0" x2="0" y2="543.4"/><circle cx="271.06" cy="275.36" r="300"/></g>
-            <g class="paths">
-              <line pathLength="1" x1="-70" y1="-66" x2="236" y2="240"/>
-              <line pathLength="1" x1="613" y1="-66" x2="306" y2="240"/>
-              <line pathLength="1" x1="613" y1="617" x2="306" y2="310"/>
-              <line pathLength="1" x1="-70" y1="617" x2="236" y2="310"/>
-            </g>
-            <g><circle class="ring" cx="271.06" cy="275.36" r="60"/><circle class="ring" cx="271.06" cy="275.36" r="60"/><circle class="ring" cx="271.06" cy="275.36" r="60"/></g>
-            <circle class="halo" cx="271.06" cy="275.36" r="170" fill="url(#haloG)"/>
-            <g class="gA"><use href="#s0" class="o"/><use href="#s1" class="i"/></g>
-            <g class="gB"><use href="#s2" class="o"/><use href="#s3" class="i"/></g>
-            <circle class="flash" cx="271.06" cy="275.36" r="30"/>
-            <use href="#star" class="star" filter="url(#glow)"/>
-          </svg>
-          <div class="lab labA"><i></i><span><b class="en">Global Reach · Offshore</b><b class="ar">الامتداد العالمي</b></span></div>
-          <div class="lab labB"><i></i><span><b class="en">Local Authority · Onshore</b><b class="ar">السلطة المحلية</b></span></div>
-          <div class="lab labS"><i></i><span><b class="en">Sky Re</b><b class="ar">سكاي ري</b></span></div>
-        </div>
-      </div>
-      <div class="steps">
-        <div class="step" data-step="0"><div class="step-card">
-          <div class="sn">01 / 06</div>
-          <h3><span class="ar">الشكل</span><span class="en">The Form</span></h3>
-          <p><span class="ar">يتكوّن الشعار من هلالين متناميين متقابلين. وحين يلتقيان، تُشكّل عملية الالتقاء ذاتها نجمًا؛ فالنجم ليس عنصرًا مرسومًا بذاته، بل هو النتيجة الطبيعية لاكتمال الشراكة.</span><span class="en">The mark is formed by two opposing waxing crescents. When they join, the act of joining itself shapes a star. The star is an emergent form — the natural result of a partnership completed.</span></p>
-          <span class="tag"><span class="ar">منظور إعادة التأمين: تقاسم المخاطر والعوائد</span><span class="en">Reinsurance perspective · sharing risks &amp; rewards</span></span>
-        </div></div>
-        <div class="step" data-step="1"><div class="step-card">
-          <div class="sn">02 / 06</div>
-          <h3><span class="ar">الهلال العلوي<br><small class="muted" style="font-size:.55em;font-weight:500">الامتداد العالمي للسوق (Offshore)</small></span><span class="en">The Upper Crescent<br><small class="muted" style="font-size:.5em;font-weight:400">Global Market Reach (Offshore)</small></span></h3>
-          <p><span class="ar">يمثّل الطاقة الاكتتابية الدولية، وشبكات الاكتتاب العالمية، ورأس المال الخارجي، والامتداد المؤسسي الذي تجلبه سكاي ري إلى المملكة.</span><span class="en">It represents international capacity, global underwriting networks, offshore capital, and the institutional reach that Sky Re brings into the Kingdom.</span></p>
-        </div></div>
-        <div class="step" data-step="2"><div class="step-card">
-          <div class="sn">03 / 06</div>
-          <h3><span class="ar">الهلال السفلي<br><small class="muted" style="font-size:.55em;font-weight:500">السلطة المحلية (Onshore) ومظلّة الحماية</small></span><span class="en">The Downward Crescent<br><small class="muted" style="font-size:.5em;font-weight:400">Local Authority (Onshore) &amp; Protection Canopy</small></span></h3>
-          <p><span class="ar">يمثّل الجانب المحلي من الشراكة، ويحمل أربعة معانٍ جوهرية:</span><span class="en">It represents the onshore side of the partnership and carries four essential meanings:</span></p>
-          <div class="chips">
-            <div><b>01</b><span class="ar">البصيرة الإقليمية</span><span class="en">Regional insight</span></div>
-            <div><b>02</b><span class="ar">التفاعل التنظيمي الاستباقي</span><span class="en">Proactive regulatory engagement</span></div>
-            <div><b>03</b><span class="ar">الدقّة في الاكتتاب</span><span class="en">Precision in underwriting</span></div>
-            <div><b>04</b><span class="ar">بنية حماية للسوق المحلي</span><span class="en">Protective structure for the local market</span></div>
-          </div>
-        </div></div>
-        <div class="step" data-step="3"><div class="step-card">
-          <div class="sn">04 / 06</div>
-          <h3><span class="ar">لحظة الالتقاء</span><span class="en">The Moment of Joining</span></h3>
-          <p><span class="ar">أهم حدث في الشعار ليس الهلالين منفردين، بل اللحظة الدقيقة التي يلتقيان فيها. في تلك اللحظة تصبح الشراكة حقيقة؛ وكل ما يهم — النجم، والهداية، والبنية المكتملة — يولد من هذا اللقاء.</span><span class="en">The most important event in the mark is not either crescent alone, but the precise moment they join. That moment is the partnership becoming real. Everything that matters — the star, the guidance, the completed structure — is born from the join.</span></p>
-        </div></div>
-        <div class="step" data-step="4"><div class="step-card">
-          <div class="sn">05 / 06</div>
-          <h3><span class="ar">النجم المنبثق — سكاي ري</span><span class="en">The Emergent Star — Sky Re</span></h3>
-          <p><span class="ar">في اللحظة التي يكتمل فيها التقاء الهلالين، تُطلق الشراكة نفسها نجمًا هاديًا جديدًا: سكاي ري. ليس عنصرًا مصمّمًا بمعزل عن غيره، بل الأثر المرئي لالتقاءٍ ناجح بين الامتداد العالمي والسلطة المحلية والحماية.</span><span class="en">At the exact moment the crescents join, the partnership itself gives rise to a new guiding star — Sky Re. Not a separately designed element, but the visible result of a successful union between Global Market Reach and Local Authority &amp; Protection.</span></p>
-        </div></div>
-        <div class="step" data-step="5"><div class="step-card">
-          <div class="sn">06 / 06</div>
-          <h3><span class="ar">المسار البصري</span><span class="en">The Optical Pathway</span></h3>
-          <p><span class="ar">تنتقل العين من الهلالين الخارجيين إلى النجم في المركز، ثم تتّسع من جديد — تمامًا كما تتدفّق الطاقة الاكتتابية: يلتقي الامتداد الدولي بالسلطة المحلية في المركز، ومن هذا اللقاء تتدفّق الهداية والحلول الاكتتابية إلى السوق.</span><span class="en">The eye travels from the outer crescents inward to the star, then expands again — mirroring the flow of capacity: international reach and local authority meet at the centre, and from that meeting, guidance and underwriting solutions flow outward to the market.</span></p>
-        </div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 03 PHILOSOPHY ================= -->
-<section class="philo" id="philosophy" data-ch="03" data-ar="الفلسفة" data-en="Philosophy">
-  <svg class="pat" aria-hidden="true"><defs><pattern id="patA" width="54" height="54" patternUnits="userSpaceOnUse"><use href="#s0" transform="translate(2 4) scale(.085)" fill="#87a7c6"/><use href="#s0" transform="translate(29 31) scale(.085)" fill="#947b4c"/></pattern></defs><rect width="100%" height="100%" fill="url(#patA)"/></svg>
-  <div class="wrap">
-    <div class="chap rv" style="justify-content:center"><span class="n">03</span><span class="l"></span><span class="ar">الفلسفة الجوهرية</span><span class="en">Core Philosophy</span><span class="l"></span></div>
-    <span class="q-mark rv">“</span>
-    <blockquote class="rv" style="--d:.1s">
-      <span class="ar"><strong>سكاي ري</strong> لا تقف خارج الشراكة… <span class="soft">إنها الثمرة الحيّة</span> لاكتمالها.</span>
-      <span class="en"><strong>Sky Re</strong> does not stand outside the partnership. <span class="soft">It is the living result</span> of the partnership being completed.</span>
-    </blockquote>
-    <p class="lead rv" style="--d:.2s"><span class="ar">التقاء الامتداد العالمي بالسلطة المحلية والحماية يصنع سكاي ري بشكل طبيعي — النجم الهادي الجديد الذي ينبثق من شراكةٍ قوامها تقاسم المخاطر والعوائد.</span><span class="en">The joining of Global Market Reach with Local Authority and Protection naturally creates Sky Re — the new guiding star that emerges from a partnership of sharing risks and rewards.</span></p>
-    <div class="sig rv" style="--d:.3s"><span class="ar">رمزية سكاي ري · نسخة نهائية معتمدة</span><span class="en">Sky Re Symbolism · Final &amp; Locked</span></div>
-  </div>
-</section>
-
-<!-- ================= 04 DEEPER DIMENSIONS ================= -->
-<section class="sec" id="dimensions" data-ch="04" data-ar="أبعاد أعمق" data-en="Deeper Dimensions" style="padding-top:clamp(60px,8vw,120px)">
-  <div class="wrap">
-    <div class="chap rv"><span class="n">04</span><span class="l"></span><span class="ar">أبعاد أعمق</span><span class="en">Deeper &amp; Subtle Dimensions</span></div>
-    <h2 class="big rv"><span class="ar">ما وراء المعنى الأول… <em>طبقاتٌ</em> تُثري العلامة</span><span class="en">Beyond the first reading — <em>layers</em> that enrich the brand</span></h2>
-    <div class="dims">
-      <article class="dim rv">
-        <span class="num">01</span>
-        <div class="ill"><svg class="mini m-join" viewBox="-110 -110 763.4 763.4"><g class="a"><use href="#s0" class="o"/><use href="#s1" class="i"/></g><g class="b"><use href="#s2" class="o"/><use href="#s3" class="i"/></g><use href="#star" class="st"/></svg></div>
-        <h4><span class="ar">الالتقاء… اللحظة الحاسمة</span><span class="en">The Act of Joining as the Critical Moment</span></h4>
-        <p><span class="ar">أهم ما في الشعار ليس الهلالين، بل لحظة التقائهما؛ عندها تصبح الشراكة حقيقة، ومنها يولد كل شيء.</span><span class="en">What matters most is not the individual crescents, but the precise moment they join — the partnership becoming real. Everything is born from the join.</span></p>
-      </article>
-      <article class="dim rv" style="--d:.1s">
-        <span class="num">02</span>
-        <div class="ill"><svg class="m-canopy" viewBox="0 0 200 200"><path class="ln dome" pathLength="1" d="M30 128 A70 70 0 0 1 170 128"/><line class="ln" x1="22" y1="150" x2="178" y2="150" opacity=".35"/><g class="rise"><path class="lg" d="M86 120 L100 106 L114 120"/></g><g class="rise"><path class="lg" d="M86 120 L100 106 L114 120"/></g><g class="rise"><path class="lg" d="M86 120 L100 106 L114 120"/></g><circle cx="70" cy="140" r="3" fill="#87a7c6"/><circle cx="100" cy="140" r="3" fill="#87a7c6"/><circle cx="130" cy="140" r="3" fill="#87a7c6"/></svg></div>
-        <h4><span class="ar">مظلّة الحماية والارتقاء</span><span class="en">Protection Canopy + Elevation</span></h4>
-        <p><span class="ar">الهلال السفلي يظلّل السوق المحلي، بينما يبقى الهلالان في حالة تنامٍ وصعود: حمايةٌ لا تكبح النمو، وارتقاءٌ يبقى متجذّرًا في السلطة المحلية والعناية التنظيمية.</span><span class="en">The downward crescent shelters the local market while both forms remain waxing — rising. Protection that never suppresses growth; elevation that stays rooted in local authority and regulatory care.</span></p>
-      </article>
-      <article class="dim rv" style="--d:.2s">
-        <span class="num">03</span>
-        <div class="ill"><svg class="m-share" viewBox="0 0 200 200"><path class="ln" d="M100 104 L86 150 L114 150 Z" opacity=".5"/><g class="beam"><line class="ln" x1="34" y1="100" x2="166" y2="100"/><circle cx="40" cy="82" r="16" fill="none" stroke="#87a7c6" stroke-width="1.6"/><circle cx="160" cy="82" r="16" fill="#947b4c"/><circle cx="100" cy="100" r="4" fill="#c2a56f"/></g></svg></div>
-        <h4><span class="ar">تقاسم المخاطر والعوائد</span><span class="en">Sharing of Risks and Rewards</span></h4>
-        <p><span class="ar">يواجه الهلالان بعضهما ويُكمل كلٌّ منهما الآخر: تعرّضٌ مشترك ومنفعة مشتركة. لا يقف أي طرف وحده — وهذا جوهر الشراكة الحقيقية في إعادة التأمين.</span><span class="en">The crescents face and complete each other: mutual exposure, mutual benefit. Neither side stands alone — the very definition of true partnership in reinsurance.</span></p>
-      </article>
-      <article class="dim rv">
-        <span class="num">04</span>
-        <div class="ill"><svg class="m-guide" viewBox="0 0 200 200"><g class="rays"><line class="lg" x1="100" y1="20" x2="100" y2="44"/><line class="lg" x1="100" y1="156" x2="100" y2="180"/><line class="lg" x1="20" y1="100" x2="44" y2="100"/><line class="lg" x1="156" y1="100" x2="180" y2="100"/><line class="ln" x1="44" y1="44" x2="58" y2="58" opacity=".6"/><line class="ln" x1="156" y1="44" x2="142" y2="58" opacity=".6"/><line class="ln" x1="44" y1="156" x2="58" y2="142" opacity=".6"/><line class="ln" x1="156" y1="156" x2="142" y2="142" opacity=".6"/></g><g transform="translate(100 100) scale(.72) translate(-271.06 -275.36)"><use href="#star" class="gs"/></g><circle class="dot" cx="30" cy="40" r="1.6"/><circle class="dot" cx="170" cy="60" r="1.2" style="animation-delay:1s"/><circle class="dot" cx="150" cy="170" r="1.6" style="animation-delay:2s"/><circle class="dot" cx="40" cy="160" r="1.2" style="animation-delay:.5s"/></svg></div>
-        <h4><span class="ar">الهداية المنبثقة</span><span class="en">Emergent Guidance</span></h4>
-        <p><span class="ar">لا يفرض النجم نفسه من الخارج، ولا يظهر إلا حين تكتمل الشراكة. فالقيادة الحقيقية تنبع من الالتقاء الناجح، لا من الطموح المنفرد.</span><span class="en">The star does not impose itself from outside — it appears only when the partnership is complete. Genuine leadership arises from successful joining, not from solitary ambition.</span></p>
-      </article>
-      <article class="dim rv" style="--d:.1s">
-        <span class="num">05</span>
-        <div class="ill"><svg class="m-path" viewBox="0 0 200 200"><circle class="r" cx="100" cy="100" r="80"/><circle class="r" cx="100" cy="100" r="80"/><circle class="r" cx="100" cy="100" r="80"/><line class="ln in" x1="20" y1="20" x2="88" y2="88"/><line class="ln in" x1="180" y1="20" x2="112" y2="88"/><line class="ln in" x1="180" y1="180" x2="112" y2="112"/><line class="ln in" x1="20" y1="180" x2="88" y2="112"/><circle cx="100" cy="100" r="5" fill="#c2a56f"/></svg></div>
-        <h4><span class="ar">المسار البصري</span><span class="en">Optical Pathway</span></h4>
-        <p><span class="ar">من الأطراف إلى النجم، ثم إلى الخارج من جديد — انعكاسٌ لتدفّق الطاقة الاكتتابية: يلتقي الامتداد والسلطة في المركز، ثم تتدفّق الحلول إلى السوق.</span><span class="en">From the edges inward to the star, then outward again — the operational flow of capacity: reach and authority meet at the centre, and solutions flow out to the market.</span></p>
-      </article>
-      <article class="dim rv" style="--d:.2s">
-        <span class="num">06</span>
-        <div class="ill"><svg class="m-restraint" viewBox="0 0 200 200"><rect class="ln" x="30" y="30" width="140" height="140" opacity=".25"/><line class="ln" x1="100" y1="22" x2="100" y2="178" opacity=".18"/><line class="ln" x1="22" y1="100" x2="178" y2="100" opacity=".18"/><circle class="lg arc" pathLength="1" cx="100" cy="100" r="62" transform="rotate(-90 100 100)"/></svg></div>
-        <h4><span class="ar">نهج الانضباط</span><span class="en">Pattern of Restraint</span></h4>
-        <p><span class="ar">لا زخرفة زائدة، ولا إغلاق قسري في دائرة كاملة، ولا تصادم عنيف. انضباط الهندسة يعكس الانضباط المطلوب في الاكتتاب وفي التعامل التنظيمي.</span><span class="en">No excess decoration, no forced closure into a full circle, no aggressive collision. The discipline of the geometry mirrors the discipline of underwriting and regulatory engagement.</span></p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 05 GEOMETRY ================= -->
-<section class="sec" id="geometry" data-ch="05" data-ar="الهندسة" data-en="The Geometry" style="padding-top:0">
-  <div class="wrap">
-    <div class="geo-grid">
-      <div class="geo-art" id="geoArt">
-        <svg viewBox="-60 -60 663.4 663.4" aria-hidden="true">
-          <defs><clipPath id="sq"><rect x="-30" y="-30" width="603.4" height="603.4"/></clipPath></defs>
-          <g clip-path="url(#sq)">
-            <rect class="cl" pathLength="1" x="0" y="0" width="543.4" height="543.4"/>
-            <line class="cl" pathLength="1" x1="0" y1="0" x2="543.4" y2="543.4"/>
-            <line class="cl" pathLength="1" x1="543.4" y1="0" x2="0" y2="543.4"/>
-            <line class="cl" pathLength="1" x1="271.06" y1="-30" x2="271.06" y2="573"/>
-            <line class="cl" pathLength="1" x1="-30" y1="275.36" x2="573" y2="275.36"/>
-            <circle class="cl" pathLength="1" cx="96.47" cy="96.47" r="185.2"/>
-            <circle class="cl" pathLength="1" cx="10.88" cy="10.88" r="243.9"/>
-            <circle class="cl" pathLength="1" cx="446.93" cy="446.93" r="185.2"/>
-            <circle class="cl" pathLength="1" cx="532.52" cy="532.52" r="243.9"/>
-            <circle class="cl g" pathLength="1" cx="271.06" cy="275.36" r="52.4"/>
-            <circle class="cl g" pathLength="1" cx="271.06" cy="275.36" r="140"/>
-          </g>
-          <g class="fillA"><use href="#s0" class="o"/><use href="#s1" class="i"/></g>
-          <g class="fillB"><use href="#s2" class="o"/><use href="#s3" class="i"/></g>
-          <circle class="pt" cx="96.47" cy="96.47" r="4"/><circle class="pt" cx="446.93" cy="446.93" r="4"/><circle class="pt" cx="271.06" cy="275.36" r="4"/>
-          <text class="gl" x="0" y="-22">1 : 1</text>
-        </svg>
-      </div>
-      <div>
-        <div class="chap rv"><span class="n">05</span><span class="l"></span><span class="ar">فلسفة البناء</span><span class="en">Logo Philosophy</span></div>
-        <h2 class="big rv" style="font-size:clamp(1.9rem,3.6vw,3.3rem)"><span class="ar">قمرٌ، ونجمٌ، وأفق… في <em>بنيةٍ مربّعة</em> متوازنة</span><span class="en">Moon, star and horizon — within a <em>balanced square</em></span></h2>
-        <div class="geo-list">
-          <div class="geo-item rv"><svg class="ic" viewBox="0 0 44 44"><path d="M30 6a17 17 0 1 0 8 24A14 14 0 1 1 30 6z" fill="none" stroke="#c2a56f" stroke-width="1.4"/></svg><div><h4><span class="ar">القمر</span><span class="en">The Moon</span></h4><p><span class="ar">تستلهم الأشكال الهلالية أطوار القمر المتزايد؛ دورةٌ كاملة ومستمرة تعكس مبدأي الاستمرارية والترابط في إعادة التأمين.</span><span class="en">The crescent forms reference the phases of the waxing moon — a complete, continuous cycle reflecting the principles of continuity and connection within reinsurance.</span></p></div></div>
-          <div class="geo-item rv" style="--d:.08s"><svg class="ic" viewBox="0 0 44 44"><path d="M22 4C24 16 28 20 40 22C28 24 24 28 22 40C20 28 16 24 4 22C16 20 20 16 22 4Z" fill="none" stroke="#c2a56f" stroke-width="1.4"/></svg><div><h4><span class="ar">النجم</span><span class="en">The Star</span></h4><p><span class="ar">في المركز، عنصرٌ محوري يوحّد ما حوله؛ يرمز إلى الثقة والاستقرار والتميّز، ونقطة ارتكاز للطمأنينة تعكس دور الشركة شريكًا موثوقًا في إدارة المخاطر.</span><span class="en">At the centre, a focal element unifying the surrounding forms — trust, stability and distinction; a central point of confidence reflecting the company's role as a trusted partner in risk management.</span></p></div></div>
-          <div class="geo-item rv" style="--d:.16s"><svg class="ic" viewBox="0 0 44 44"><path d="M2 30 Q22 18 42 30" fill="none" stroke="#c2a56f" stroke-width="1.4"/><line x1="2" y1="36" x2="42" y2="36" stroke="#c2a56f" stroke-width="1.4" opacity=".5"/></svg><div><h4><span class="ar">الأفق</span><span class="en">The Horizon</span></h4><p><span class="ar">تكوينٌ متوازن ومتماثل يعبّر عن الاتساع والتفرّد والاستمرارية.</span><span class="en">A balanced, symmetrical composition expressing expanse, individuality and continuity.</span></p></div></div>
-          <div class="geo-item rv" style="--d:.24s"><svg class="ic" viewBox="0 0 44 44"><rect x="6" y="6" width="32" height="32" fill="none" stroke="#c2a56f" stroke-width="1.4"/><line x1="6" y1="6" x2="38" y2="38" stroke="#c2a56f" stroke-width="1" opacity=".5"/></svg><div><h4><span class="ar">المربّع</span><span class="en">The Square</span></h4><p><span class="ar">بنيةٌ قائمة على المربّع تعزّز التوازن والثبات والانسجام، وتجمع الحركة والصلابة في هويةٍ بصرية واحدة مميّزة.</span><span class="en">A square-based structure reinforces balance, stability and harmony — bringing movement and solidity together within one distinctive identity.</span></p></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 06 FOUNDATIONS ================= -->
-<section class="sec" id="foundations" data-ch="06" data-ar="الشعار والأسس" data-en="Brand Foundations" style="padding-top:clamp(40px,6vw,100px)">
-  <div class="wrap">
-    <div class="chap rv"><span class="n">06</span><span class="l"></span><span class="ar">التوافق مع أسس العلامة</span><span class="en">Alignment with Brand Foundations</span></div>
-    <h2 class="big rv"><span class="ar">كل منحنى… <em>يحمل قيمة</em></span><span class="en">Every curve <em>carries a value</em></span></h2>
-    <div class="found">
-      <div class="f-art" id="fArt" data-hl="promise">
-        <svg viewBox="-80 -80 703.4 703.4" aria-hidden="true">
-          <g class="whole">
-            <circle class="halo" cx="271.06" cy="275.36" r="170" fill="url(#haloG)"/>
-            <g class="gA"><use href="#s0" class="o"/><use href="#s1" class="i"/></g>
-            <g class="gB"><use href="#s2" class="o"/><use href="#s3" class="i"/></g>
-            <circle class="jring" cx="271.06" cy="275.36" r="70"/>
-            <use href="#star" class="star" filter="url(#glow)"/>
-          </g>
-        </svg>
-      </div>
-      <div class="f-list" id="fList">
-        <button class="f-item on" data-hl="promise"><span class="fi">01</span><div><h4><span class="ar">وعد العلامة</span><span class="en">Brand Promise</span><small><span class="ar">«نرتقي بالطاقة الاكتتابية، ونمكّن النمو الإقليمي»</span><span class="en">“Elevating Capacity, Empowering Regional Growth”</span></small></h4><p><span class="ar">يتجسّد في الطاقة الصاعدة للهلالين المتناميين، وفي النجم الهادي الذي يظهر من التقائهما.</span><span class="en">Expressed through the rising energy of the waxing forms and the guiding star that appears from their joining.</span></p></div></button>
-        <button class="f-item" data-hl="reach"><span class="fi">02</span><div><h4><span class="ar">سلطة محلية، امتداد عالمي</span><span class="en">Local Authority, Global Reach</span></h4><p><span class="ar">يتجسّدان مباشرةً في الهلال العلوي (الخارجي) والهلال السفلي (المحلي).</span><span class="en">Directly embodied in the upper (offshore) and downward (onshore) crescents.</span></p></div></button>
-        <button class="f-item" data-hl="partner"><span class="fi">03</span><div><h4><span class="ar">شراكة متوائمة</span><span class="en">Co-Aligned Partnership</span></h4><p><span class="ar">تظهر جليّةً في فعل الالتقاء الذي يُنتج النجم.</span><span class="en">Made visible in the act of joining that produces the star.</span></p></div></button>
-        <button class="f-item" data-hl="discipline"><span class="fi">04</span><div><h4><span class="ar">انضباط ودقّة الاكتتاب</span><span class="en">Underwriting Discipline &amp; Precision</span></h4><p><span class="ar">يحملهما الهلال السفلي بوصفه جزءًا من مظلّة الحماية المحلية.</span><span class="en">Carried by the downward crescent as part of the onshore protection canopy.</span></p></div></button>
-        <button class="f-item" data-hl="vision"><span class="fi">05</span><div><h4><span class="ar">رؤية من علوّ شاهق</span><span class="en">High-Altitude Vision</span></h4><p><span class="ar">يعبّر عنها النجم الهادي المنبثق: سكاي ري.</span><span class="en">Expressed through the emergent guiding star of Sky Re.</span></p></div></button>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================= 07 VALUES (light) ================= -->
 <section class="sec light" id="values" data-ch="07" data-ar="القيم" data-en="Core Values">
@@ -2674,6 +2704,236 @@ button.rs-item:focus-visible{outline:none}
   </div>
 </footer>
 </main>
+
+<!-- ================= BRAND STORY PORTAL VIEW =================
+     Exclusive immersive view (02 Symbol · 03 Philosophy · 04 Dimensions · 05 Geometry · 06 Foundations).
+     It is detached from the document on load and mounted ONLY when the visitor clicks the central star on Home. -->
+<div class="bs-view" id="bsView" role="region" aria-label="Sky Re — The Brand Story" tabindex="-1" hidden>
+  <canvas class="bs-sky" id="bsSky" aria-hidden="true"></canvas>
+  <div class="bs-scroll" id="bsScroll">
+    <div class="wrap bs-intro"><span class="bs-kicker rv"><i></i><span class="en">Through the Star · The Brand Story</span><span class="ar">عبر النجم · قصة العلامة</span></span></div>
+<!-- ================= 02 THE SYMBOL (sticky storytelling) ================= -->
+<section id="symbol-story" class="bs-story" data-bs-ch="02" data-ar="الرمز" data-en="The Symbol">
+  <div class="wrap story-head">
+    <div class="chap rv"><span class="n">02</span><span class="l"></span><span class="ar">قصة الرمز</span><span class="en">The Story of the Symbol</span></div>
+    <h2 class="big rv"><span class="ar">هلالان متقابلان… <em>ونجمٌ يولد</em> من اللقاء</span><span class="en">Two opposing crescents — <em>and a star</em> born of their joining</span></h2>
+  </div>
+  <div class="wrap">
+    <div class="story">
+      <div class="stage-wrap">
+        <div class="stage" id="stage" data-step="0">
+          <svg viewBox="-80 -80 703.4 703.4" aria-hidden="true">
+            <g class="grid-bg"><rect x="0" y="0" width="543.4" height="543.4"/><line x1="0" y1="0" x2="543.4" y2="543.4"/><line x1="543.4" y1="0" x2="0" y2="543.4"/><circle cx="271.06" cy="275.36" r="300"/></g>
+            <g class="paths">
+              <line pathLength="1" x1="-70" y1="-66" x2="236" y2="240"/>
+              <line pathLength="1" x1="613" y1="-66" x2="306" y2="240"/>
+              <line pathLength="1" x1="613" y1="617" x2="306" y2="310"/>
+              <line pathLength="1" x1="-70" y1="617" x2="236" y2="310"/>
+            </g>
+            <g><circle class="ring" cx="271.06" cy="275.36" r="60"/><circle class="ring" cx="271.06" cy="275.36" r="60"/><circle class="ring" cx="271.06" cy="275.36" r="60"/></g>
+            <circle class="halo" cx="271.06" cy="275.36" r="170" fill="url(#haloG)"/>
+            <g class="gA"><use href="#s0" class="o"/><use href="#s1" class="i"/></g>
+            <g class="gB"><use href="#s2" class="o"/><use href="#s3" class="i"/></g>
+            <circle class="flash" cx="271.06" cy="275.36" r="30"/>
+            <use href="#star" class="star" filter="url(#glow)"/>
+          </svg>
+          <div class="lab labA"><i></i><span><b class="en">Global Reach · Offshore</b><b class="ar">الامتداد العالمي</b></span></div>
+          <div class="lab labB"><i></i><span><b class="en">Local Authority · Onshore</b><b class="ar">السلطة المحلية</b></span></div>
+          <div class="lab labS"><i></i><span><b class="en">Sky Re</b><b class="ar">سكاي ري</b></span></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step" data-step="0"><div class="step-card">
+          <div class="sn">01 / 06</div>
+          <h3><span class="ar">الشكل</span><span class="en">The Form</span></h3>
+          <p><span class="ar">يتكوّن الشعار من هلالين متناميين متقابلين. وحين يلتقيان، تُشكّل عملية الالتقاء ذاتها نجمًا؛ فالنجم ليس عنصرًا مرسومًا بذاته، بل هو النتيجة الطبيعية لاكتمال الشراكة.</span><span class="en">The mark is formed by two opposing waxing crescents. When they join, the act of joining itself shapes a star. The star is an emergent form — the natural result of a partnership completed.</span></p>
+          <span class="tag"><span class="ar">منظور إعادة التأمين: تقاسم المخاطر والعوائد</span><span class="en">Reinsurance perspective · sharing risks &amp; rewards</span></span>
+        </div></div>
+        <div class="step" data-step="1"><div class="step-card">
+          <div class="sn">02 / 06</div>
+          <h3><span class="ar">الهلال العلوي<br><small class="muted" style="font-size:.55em;font-weight:500">الامتداد العالمي للسوق (Offshore)</small></span><span class="en">The Upper Crescent<br><small class="muted" style="font-size:.5em;font-weight:400">Global Market Reach (Offshore)</small></span></h3>
+          <p><span class="ar">يمثّل الطاقة الاكتتابية الدولية، وشبكات الاكتتاب العالمية، ورأس المال الخارجي، والامتداد المؤسسي الذي تجلبه سكاي ري إلى المملكة.</span><span class="en">It represents international capacity, global underwriting networks, offshore capital, and the institutional reach that Sky Re brings into the Kingdom.</span></p>
+        </div></div>
+        <div class="step" data-step="2"><div class="step-card">
+          <div class="sn">03 / 06</div>
+          <h3><span class="ar">الهلال السفلي<br><small class="muted" style="font-size:.55em;font-weight:500">السلطة المحلية (Onshore) ومظلّة الحماية</small></span><span class="en">The Downward Crescent<br><small class="muted" style="font-size:.5em;font-weight:400">Local Authority (Onshore) &amp; Protection Canopy</small></span></h3>
+          <p><span class="ar">يمثّل الجانب المحلي من الشراكة، ويحمل أربعة معانٍ جوهرية:</span><span class="en">It represents the onshore side of the partnership and carries four essential meanings:</span></p>
+          <div class="chips">
+            <div><b>01</b><span class="ar">البصيرة الإقليمية</span><span class="en">Regional insight</span></div>
+            <div><b>02</b><span class="ar">التفاعل التنظيمي الاستباقي</span><span class="en">Proactive regulatory engagement</span></div>
+            <div><b>03</b><span class="ar">الدقّة في الاكتتاب</span><span class="en">Precision in underwriting</span></div>
+            <div><b>04</b><span class="ar">بنية حماية للسوق المحلي</span><span class="en">Protective structure for the local market</span></div>
+          </div>
+        </div></div>
+        <div class="step" data-step="3"><div class="step-card">
+          <div class="sn">04 / 06</div>
+          <h3><span class="ar">لحظة الالتقاء</span><span class="en">The Moment of Joining</span></h3>
+          <p><span class="ar">أهم حدث في الشعار ليس الهلالين منفردين، بل اللحظة الدقيقة التي يلتقيان فيها. في تلك اللحظة تصبح الشراكة حقيقة؛ وكل ما يهم — النجم، والهداية، والبنية المكتملة — يولد من هذا اللقاء.</span><span class="en">The most important event in the mark is not either crescent alone, but the precise moment they join. That moment is the partnership becoming real. Everything that matters — the star, the guidance, the completed structure — is born from the join.</span></p>
+        </div></div>
+        <div class="step" data-step="4"><div class="step-card">
+          <div class="sn">05 / 06</div>
+          <h3><span class="ar">النجم المنبثق — سكاي ري</span><span class="en">The Emergent Star — Sky Re</span></h3>
+          <p><span class="ar">في اللحظة التي يكتمل فيها التقاء الهلالين، تُطلق الشراكة نفسها نجمًا هاديًا جديدًا: سكاي ري. ليس عنصرًا مصمّمًا بمعزل عن غيره، بل الأثر المرئي لالتقاءٍ ناجح بين الامتداد العالمي والسلطة المحلية والحماية.</span><span class="en">At the exact moment the crescents join, the partnership itself gives rise to a new guiding star — Sky Re. Not a separately designed element, but the visible result of a successful union between Global Market Reach and Local Authority &amp; Protection.</span></p>
+        </div></div>
+        <div class="step" data-step="5"><div class="step-card">
+          <div class="sn">06 / 06</div>
+          <h3><span class="ar">المسار البصري</span><span class="en">The Optical Pathway</span></h3>
+          <p><span class="ar">تنتقل العين من الهلالين الخارجيين إلى النجم في المركز، ثم تتّسع من جديد — تمامًا كما تتدفّق الطاقة الاكتتابية: يلتقي الامتداد الدولي بالسلطة المحلية في المركز، ومن هذا اللقاء تتدفّق الهداية والحلول الاكتتابية إلى السوق.</span><span class="en">The eye travels from the outer crescents inward to the star, then expands again — mirroring the flow of capacity: international reach and local authority meet at the centre, and from that meeting, guidance and underwriting solutions flow outward to the market.</span></p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 PHILOSOPHY ================= -->
+<section class="philo" id="philosophy" data-bs-ch="03" data-ar="الفلسفة" data-en="Philosophy">
+  <svg class="pat" aria-hidden="true"><defs><pattern id="patA" width="54" height="54" patternUnits="userSpaceOnUse"><use href="#s0" transform="translate(2 4) scale(.085)" fill="#87a7c6"/><use href="#s0" transform="translate(29 31) scale(.085)" fill="#947b4c"/></pattern></defs><rect width="100%" height="100%" fill="url(#patA)"/></svg>
+  <div class="wrap">
+    <div class="chap rv" style="justify-content:center"><span class="n">03</span><span class="l"></span><span class="ar">الفلسفة الجوهرية</span><span class="en">Core Philosophy</span><span class="l"></span></div>
+    <span class="q-mark rv">“</span>
+    <blockquote class="rv" style="--d:.1s">
+      <span class="ar"><strong>سكاي ري</strong> لا تقف خارج الشراكة… <span class="soft">إنها الثمرة الحيّة</span> لاكتمالها.</span>
+      <span class="en"><strong>Sky Re</strong> does not stand outside the partnership. <span class="soft">It is the living result</span> of the partnership being completed.</span>
+    </blockquote>
+    <p class="lead rv" style="--d:.2s"><span class="ar">التقاء الامتداد العالمي بالسلطة المحلية والحماية يصنع سكاي ري بشكل طبيعي — النجم الهادي الجديد الذي ينبثق من شراكةٍ قوامها تقاسم المخاطر والعوائد.</span><span class="en">The joining of Global Market Reach with Local Authority and Protection naturally creates Sky Re — the new guiding star that emerges from a partnership of sharing risks and rewards.</span></p>
+    <div class="sig rv" style="--d:.3s"><span class="ar">رمزية سكاي ري · نسخة نهائية معتمدة</span><span class="en">Sky Re Symbolism · Final &amp; Locked</span></div>
+  </div>
+</section>
+
+<!-- ================= 04 DEEPER DIMENSIONS ================= -->
+<section class="sec" id="dimensions" data-bs-ch="04" data-ar="أبعاد أعمق" data-en="Deeper Dimensions" style="padding-top:clamp(60px,8vw,120px)">
+  <div class="wrap">
+    <div class="chap rv"><span class="n">04</span><span class="l"></span><span class="ar">أبعاد أعمق</span><span class="en">Deeper &amp; Subtle Dimensions</span></div>
+    <h2 class="big rv"><span class="ar">ما وراء المعنى الأول… <em>طبقاتٌ</em> تُثري العلامة</span><span class="en">Beyond the first reading — <em>layers</em> that enrich the brand</span></h2>
+    <div class="dims">
+      <article class="dim rv">
+        <span class="num">01</span>
+        <div class="ill"><svg class="mini m-join" viewBox="-110 -110 763.4 763.4"><g class="a"><use href="#s0" class="o"/><use href="#s1" class="i"/></g><g class="b"><use href="#s2" class="o"/><use href="#s3" class="i"/></g><use href="#star" class="st"/></svg></div>
+        <h4><span class="ar">الالتقاء… اللحظة الحاسمة</span><span class="en">The Act of Joining as the Critical Moment</span></h4>
+        <p><span class="ar">أهم ما في الشعار ليس الهلالين، بل لحظة التقائهما؛ عندها تصبح الشراكة حقيقة، ومنها يولد كل شيء.</span><span class="en">What matters most is not the individual crescents, but the precise moment they join — the partnership becoming real. Everything is born from the join.</span></p>
+      </article>
+      <article class="dim rv" style="--d:.1s">
+        <span class="num">02</span>
+        <div class="ill"><svg class="m-canopy" viewBox="0 0 200 200"><path class="ln dome" pathLength="1" d="M30 128 A70 70 0 0 1 170 128"/><line class="ln" x1="22" y1="150" x2="178" y2="150" opacity=".35"/><g class="rise"><path class="lg" d="M86 120 L100 106 L114 120"/></g><g class="rise"><path class="lg" d="M86 120 L100 106 L114 120"/></g><g class="rise"><path class="lg" d="M86 120 L100 106 L114 120"/></g><circle cx="70" cy="140" r="3" fill="#87a7c6"/><circle cx="100" cy="140" r="3" fill="#87a7c6"/><circle cx="130" cy="140" r="3" fill="#87a7c6"/></svg></div>
+        <h4><span class="ar">مظلّة الحماية والارتقاء</span><span class="en">Protection Canopy + Elevation</span></h4>
+        <p><span class="ar">الهلال السفلي يظلّل السوق المحلي، بينما يبقى الهلالان في حالة تنامٍ وصعود: حمايةٌ لا تكبح النمو، وارتقاءٌ يبقى متجذّرًا في السلطة المحلية والعناية التنظيمية.</span><span class="en">The downward crescent shelters the local market while both forms remain waxing — rising. Protection that never suppresses growth; elevation that stays rooted in local authority and regulatory care.</span></p>
+      </article>
+      <article class="dim rv" style="--d:.2s">
+        <span class="num">03</span>
+        <div class="ill"><svg class="m-share" viewBox="0 0 200 200"><path class="ln" d="M100 104 L86 150 L114 150 Z" opacity=".5"/><g class="beam"><line class="ln" x1="34" y1="100" x2="166" y2="100"/><circle cx="40" cy="82" r="16" fill="none" stroke="#87a7c6" stroke-width="1.6"/><circle cx="160" cy="82" r="16" fill="#947b4c"/><circle cx="100" cy="100" r="4" fill="#c2a56f"/></g></svg></div>
+        <h4><span class="ar">تقاسم المخاطر والعوائد</span><span class="en">Sharing of Risks and Rewards</span></h4>
+        <p><span class="ar">يواجه الهلالان بعضهما ويُكمل كلٌّ منهما الآخر: تعرّضٌ مشترك ومنفعة مشتركة. لا يقف أي طرف وحده — وهذا جوهر الشراكة الحقيقية في إعادة التأمين.</span><span class="en">The crescents face and complete each other: mutual exposure, mutual benefit. Neither side stands alone — the very definition of true partnership in reinsurance.</span></p>
+      </article>
+      <article class="dim rv">
+        <span class="num">04</span>
+        <div class="ill"><svg class="m-guide" viewBox="0 0 200 200"><g class="rays"><line class="lg" x1="100" y1="20" x2="100" y2="44"/><line class="lg" x1="100" y1="156" x2="100" y2="180"/><line class="lg" x1="20" y1="100" x2="44" y2="100"/><line class="lg" x1="156" y1="100" x2="180" y2="100"/><line class="ln" x1="44" y1="44" x2="58" y2="58" opacity=".6"/><line class="ln" x1="156" y1="44" x2="142" y2="58" opacity=".6"/><line class="ln" x1="44" y1="156" x2="58" y2="142" opacity=".6"/><line class="ln" x1="156" y1="156" x2="142" y2="142" opacity=".6"/></g><g transform="translate(100 100) scale(.72) translate(-271.06 -275.36)"><use href="#star" class="gs"/></g><circle class="dot" cx="30" cy="40" r="1.6"/><circle class="dot" cx="170" cy="60" r="1.2" style="animation-delay:1s"/><circle class="dot" cx="150" cy="170" r="1.6" style="animation-delay:2s"/><circle class="dot" cx="40" cy="160" r="1.2" style="animation-delay:.5s"/></svg></div>
+        <h4><span class="ar">الهداية المنبثقة</span><span class="en">Emergent Guidance</span></h4>
+        <p><span class="ar">لا يفرض النجم نفسه من الخارج، ولا يظهر إلا حين تكتمل الشراكة. فالقيادة الحقيقية تنبع من الالتقاء الناجح، لا من الطموح المنفرد.</span><span class="en">The star does not impose itself from outside — it appears only when the partnership is complete. Genuine leadership arises from successful joining, not from solitary ambition.</span></p>
+      </article>
+      <article class="dim rv" style="--d:.1s">
+        <span class="num">05</span>
+        <div class="ill"><svg class="m-path" viewBox="0 0 200 200"><circle class="r" cx="100" cy="100" r="80"/><circle class="r" cx="100" cy="100" r="80"/><circle class="r" cx="100" cy="100" r="80"/><line class="ln in" x1="20" y1="20" x2="88" y2="88"/><line class="ln in" x1="180" y1="20" x2="112" y2="88"/><line class="ln in" x1="180" y1="180" x2="112" y2="112"/><line class="ln in" x1="20" y1="180" x2="88" y2="112"/><circle cx="100" cy="100" r="5" fill="#c2a56f"/></svg></div>
+        <h4><span class="ar">المسار البصري</span><span class="en">Optical Pathway</span></h4>
+        <p><span class="ar">من الأطراف إلى النجم، ثم إلى الخارج من جديد — انعكاسٌ لتدفّق الطاقة الاكتتابية: يلتقي الامتداد والسلطة في المركز، ثم تتدفّق الحلول إلى السوق.</span><span class="en">From the edges inward to the star, then outward again — the operational flow of capacity: reach and authority meet at the centre, and solutions flow out to the market.</span></p>
+      </article>
+      <article class="dim rv" style="--d:.2s">
+        <span class="num">06</span>
+        <div class="ill"><svg class="m-restraint" viewBox="0 0 200 200"><rect class="ln" x="30" y="30" width="140" height="140" opacity=".25"/><line class="ln" x1="100" y1="22" x2="100" y2="178" opacity=".18"/><line class="ln" x1="22" y1="100" x2="178" y2="100" opacity=".18"/><circle class="lg arc" pathLength="1" cx="100" cy="100" r="62" transform="rotate(-90 100 100)"/></svg></div>
+        <h4><span class="ar">نهج الانضباط</span><span class="en">Pattern of Restraint</span></h4>
+        <p><span class="ar">لا زخرفة زائدة، ولا إغلاق قسري في دائرة كاملة، ولا تصادم عنيف. انضباط الهندسة يعكس الانضباط المطلوب في الاكتتاب وفي التعامل التنظيمي.</span><span class="en">No excess decoration, no forced closure into a full circle, no aggressive collision. The discipline of the geometry mirrors the discipline of underwriting and regulatory engagement.</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 GEOMETRY ================= -->
+<section class="sec" id="geometry" data-bs-ch="05" data-ar="الهندسة" data-en="The Geometry" style="padding-top:0">
+  <div class="wrap">
+    <div class="geo-grid">
+      <div class="geo-art" id="geoArt">
+        <svg viewBox="-60 -60 663.4 663.4" aria-hidden="true">
+          <defs><clipPath id="sq"><rect x="-30" y="-30" width="603.4" height="603.4"/></clipPath></defs>
+          <g clip-path="url(#sq)">
+            <rect class="cl" pathLength="1" x="0" y="0" width="543.4" height="543.4"/>
+            <line class="cl" pathLength="1" x1="0" y1="0" x2="543.4" y2="543.4"/>
+            <line class="cl" pathLength="1" x1="543.4" y1="0" x2="0" y2="543.4"/>
+            <line class="cl" pathLength="1" x1="271.06" y1="-30" x2="271.06" y2="573"/>
+            <line class="cl" pathLength="1" x1="-30" y1="275.36" x2="573" y2="275.36"/>
+            <circle class="cl" pathLength="1" cx="96.47" cy="96.47" r="185.2"/>
+            <circle class="cl" pathLength="1" cx="10.88" cy="10.88" r="243.9"/>
+            <circle class="cl" pathLength="1" cx="446.93" cy="446.93" r="185.2"/>
+            <circle class="cl" pathLength="1" cx="532.52" cy="532.52" r="243.9"/>
+            <circle class="cl g" pathLength="1" cx="271.06" cy="275.36" r="52.4"/>
+            <circle class="cl g" pathLength="1" cx="271.06" cy="275.36" r="140"/>
+          </g>
+          <g class="fillA"><use href="#s0" class="o"/><use href="#s1" class="i"/></g>
+          <g class="fillB"><use href="#s2" class="o"/><use href="#s3" class="i"/></g>
+          <circle class="pt" cx="96.47" cy="96.47" r="4"/><circle class="pt" cx="446.93" cy="446.93" r="4"/><circle class="pt" cx="271.06" cy="275.36" r="4"/>
+          <text class="gl" x="0" y="-22">1 : 1</text>
+        </svg>
+      </div>
+      <div>
+        <div class="chap rv"><span class="n">05</span><span class="l"></span><span class="ar">فلسفة البناء</span><span class="en">Logo Philosophy</span></div>
+        <h2 class="big rv" style="font-size:clamp(1.9rem,3.6vw,3.3rem)"><span class="ar">قمرٌ، ونجمٌ، وأفق… في <em>بنيةٍ مربّعة</em> متوازنة</span><span class="en">Moon, star and horizon — within a <em>balanced square</em></span></h2>
+        <div class="geo-list">
+          <div class="geo-item rv"><svg class="ic" viewBox="0 0 44 44"><path d="M30 6a17 17 0 1 0 8 24A14 14 0 1 1 30 6z" fill="none" stroke="#c2a56f" stroke-width="1.4"/></svg><div><h4><span class="ar">القمر</span><span class="en">The Moon</span></h4><p><span class="ar">تستلهم الأشكال الهلالية أطوار القمر المتزايد؛ دورةٌ كاملة ومستمرة تعكس مبدأي الاستمرارية والترابط في إعادة التأمين.</span><span class="en">The crescent forms reference the phases of the waxing moon — a complete, continuous cycle reflecting the principles of continuity and connection within reinsurance.</span></p></div></div>
+          <div class="geo-item rv" style="--d:.08s"><svg class="ic" viewBox="0 0 44 44"><path d="M22 4C24 16 28 20 40 22C28 24 24 28 22 40C20 28 16 24 4 22C16 20 20 16 22 4Z" fill="none" stroke="#c2a56f" stroke-width="1.4"/></svg><div><h4><span class="ar">النجم</span><span class="en">The Star</span></h4><p><span class="ar">في المركز، عنصرٌ محوري يوحّد ما حوله؛ يرمز إلى الثقة والاستقرار والتميّز، ونقطة ارتكاز للطمأنينة تعكس دور الشركة شريكًا موثوقًا في إدارة المخاطر.</span><span class="en">At the centre, a focal element unifying the surrounding forms — trust, stability and distinction; a central point of confidence reflecting the company's role as a trusted partner in risk management.</span></p></div></div>
+          <div class="geo-item rv" style="--d:.16s"><svg class="ic" viewBox="0 0 44 44"><path d="M2 30 Q22 18 42 30" fill="none" stroke="#c2a56f" stroke-width="1.4"/><line x1="2" y1="36" x2="42" y2="36" stroke="#c2a56f" stroke-width="1.4" opacity=".5"/></svg><div><h4><span class="ar">الأفق</span><span class="en">The Horizon</span></h4><p><span class="ar">تكوينٌ متوازن ومتماثل يعبّر عن الاتساع والتفرّد والاستمرارية.</span><span class="en">A balanced, symmetrical composition expressing expanse, individuality and continuity.</span></p></div></div>
+          <div class="geo-item rv" style="--d:.24s"><svg class="ic" viewBox="0 0 44 44"><rect x="6" y="6" width="32" height="32" fill="none" stroke="#c2a56f" stroke-width="1.4"/><line x1="6" y1="6" x2="38" y2="38" stroke="#c2a56f" stroke-width="1" opacity=".5"/></svg><div><h4><span class="ar">المربّع</span><span class="en">The Square</span></h4><p><span class="ar">بنيةٌ قائمة على المربّع تعزّز التوازن والثبات والانسجام، وتجمع الحركة والصلابة في هويةٍ بصرية واحدة مميّزة.</span><span class="en">A square-based structure reinforces balance, stability and harmony — bringing movement and solidity together within one distinctive identity.</span></p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 FOUNDATIONS ================= -->
+<section class="sec" id="foundations" data-bs-ch="06" data-ar="الشعار والأسس" data-en="Brand Foundations" style="padding-top:clamp(40px,6vw,100px)">
+  <div class="wrap">
+    <div class="chap rv"><span class="n">06</span><span class="l"></span><span class="ar">التوافق مع أسس العلامة</span><span class="en">Alignment with Brand Foundations</span></div>
+    <h2 class="big rv"><span class="ar">كل منحنى… <em>يحمل قيمة</em></span><span class="en">Every curve <em>carries a value</em></span></h2>
+    <div class="found">
+      <div class="f-art" id="fArt" data-hl="promise">
+        <svg viewBox="-80 -80 703.4 703.4" aria-hidden="true">
+          <g class="whole">
+            <circle class="halo" cx="271.06" cy="275.36" r="170" fill="url(#haloG)"/>
+            <g class="gA"><use href="#s0" class="o"/><use href="#s1" class="i"/></g>
+            <g class="gB"><use href="#s2" class="o"/><use href="#s3" class="i"/></g>
+            <circle class="jring" cx="271.06" cy="275.36" r="70"/>
+            <use href="#star" class="star" filter="url(#glow)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="f-list" id="fList">
+        <button class="f-item on" data-hl="promise"><span class="fi">01</span><div><h4><span class="ar">وعد العلامة</span><span class="en">Brand Promise</span><small><span class="ar">«نرتقي بالطاقة الاكتتابية، ونمكّن النمو الإقليمي»</span><span class="en">“Elevating Capacity, Empowering Regional Growth”</span></small></h4><p><span class="ar">يتجسّد في الطاقة الصاعدة للهلالين المتناميين، وفي النجم الهادي الذي يظهر من التقائهما.</span><span class="en">Expressed through the rising energy of the waxing forms and the guiding star that appears from their joining.</span></p></div></button>
+        <button class="f-item" data-hl="reach"><span class="fi">02</span><div><h4><span class="ar">سلطة محلية، امتداد عالمي</span><span class="en">Local Authority, Global Reach</span></h4><p><span class="ar">يتجسّدان مباشرةً في الهلال العلوي (الخارجي) والهلال السفلي (المحلي).</span><span class="en">Directly embodied in the upper (offshore) and downward (onshore) crescents.</span></p></div></button>
+        <button class="f-item" data-hl="partner"><span class="fi">03</span><div><h4><span class="ar">شراكة متوائمة</span><span class="en">Co-Aligned Partnership</span></h4><p><span class="ar">تظهر جليّةً في فعل الالتقاء الذي يُنتج النجم.</span><span class="en">Made visible in the act of joining that produces the star.</span></p></div></button>
+        <button class="f-item" data-hl="discipline"><span class="fi">04</span><div><h4><span class="ar">انضباط ودقّة الاكتتاب</span><span class="en">Underwriting Discipline &amp; Precision</span></h4><p><span class="ar">يحملهما الهلال السفلي بوصفه جزءًا من مظلّة الحماية المحلية.</span><span class="en">Carried by the downward crescent as part of the onshore protection canopy.</span></p></div></button>
+        <button class="f-item" data-hl="vision"><span class="fi">05</span><div><h4><span class="ar">رؤية من علوّ شاهق</span><span class="en">High-Altitude Vision</span></h4><p><span class="ar">يعبّر عنها النجم الهادي المنبثق: سكاي ري.</span><span class="en">Expressed through the emergent guiding star of Sky Re.</span></p></div></button>
+      </div>
+    </div>
+  </div>
+</section>
+    <div class="wrap bs-end">
+      <svg class="bs-end-star" viewBox="213 218 116 116" aria-hidden="true" focusable="false"><use href="#star"/></svg>
+      <span class="bs-end-k"><span class="en">End of the Brand Story</span><span class="ar">نهاية قصة العلامة</span></span>
+      <div class="bs-end-acts">
+        <button type="button" class="btn-gold" data-bs-return><span><span class="en">Return to Home</span><span class="ar">العودة للرئيسية</span></span><span aria-hidden="true">✦</span></button>
+        <a href="#company" class="btn-ghost"><span><span class="en">About Sky Re</span><span class="ar">عن سكاي ري</span></span></a>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="bs-return" data-bs-return aria-label="Return to Home"><span class="bs-return-ic" aria-hidden="true"><svg viewBox="213 218 116 116" focusable="false"><use href="#star"/></svg></span><span class="en">Return to Home</span><span class="ar">العودة للرئيسية</span></button>
+  <nav class="bs-dots" aria-label="Brand Story chapters">
+    <button type="button" class="bs-dot on"></button><button type="button" class="bs-dot"></button><button type="button" class="bs-dot"></button><button type="button" class="bs-dot"></button><button type="button" class="bs-dot"></button><button type="button" class="bs-dot"></button>
+    <i class="bs-sep" aria-hidden="true"></i>
+    <button type="button" class="bs-ch" data-bs-ch-btn="03" data-bs-go="#philosophy">03</button>
+    <button type="button" class="bs-ch" data-bs-ch-btn="04" data-bs-go="#dimensions">04</button>
+    <button type="button" class="bs-ch" data-bs-ch-btn="05" data-bs-go="#geometry">05</button>
+    <button type="button" class="bs-ch" data-bs-ch-btn="06" data-bs-go="#foundations">06</button>
+    <span class="bs-count" aria-hidden="true">01 / 06</span>
+  </nav>
+</div>
+
 
 
 <!-- ================= INTERACTIVE CORPORATE & MEDIA MODALS ================= -->
@@ -4564,7 +4824,7 @@ pal();kick();
   // Active Top-Level Section Scroll-Spy
   const navTargets = [
     { key: 'home', ids: ['home-hero'] },
-    { key: 'about', ids: ['company', 'who-we-are', 'mga-model', 'our-role', 'symbol-story', 'philosophy', 'dimensions', 'geometry', 'foundations', 'values', 'identity', 'world'] },
+    { key: 'about', ids: ['company', 'who-we-are', 'mga-model', 'our-role', 'vision-box', 'values', 'identity', 'world'] },
     { key: 'portfolios', ids: ['portfolios'] },
     { key: 'partners', ids: ['partners'] },
     { key: 'team', ids: ['team'] },
@@ -5008,6 +5268,537 @@ pal();kick();
       closeMobileMenu();
     }
   });
+})();
+
+</script>
+<script data-portal>
+/* =====================================================================
+   SKY RE — BRAND STORY PORTAL ENGINE
+   · Home star = black-hole-inspired portal (field, lensing, accretion, captures)
+   · Brand Story (02 Symbol + 03 Philosophy + 04 Dimensions + 05 Geometry + 06 Foundations)
+     = exclusive view, DETACHED from the document while closed
+   · Cinematic iris open/close · history/back · nav auto-exit · reduced motion
+   ===================================================================== */
+(function(){
+'use strict';
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const html=document.documentElement, body=document.body;
+const hero=$('#home-hero'), core=$('#bhCore'), btn=$('#bhPortal'), field=$('#bhField'), view=$('#bsView');
+if(!hero||!core||!btn||!field||!view) return;
+
+const PORTAL_HASH_RE=/^#(symbol-story|brand-story|philosophy|dimensions|geometry|foundations)$/i;
+const mq=matchMedia('(prefers-reduced-motion: reduce)'); let reduce=mq.matches;
+if(mq.addEventListener) mq.addEventListener('change',e=>{reduce=e.matches;F.kick();});
+const main=$('main');
+const stage=$('#stage',view), steps=$$('.step',view), dots=$$('.bs-dot',view), chBtns=$$('.bs-ch',view), countEl=$('.bs-count',view);
+const bsSecs=$$('[data-bs-ch]',view);
+const TAU=Math.PI*2, clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const easeIO=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2, easeIn=t=>t*t*t, easeOut=t=>1-Math.pow(1-t,3);
+const isAr=()=>html.dataset.lang==='ar', isLight=()=>html.dataset.theme==='light';
+const T=(en,ar)=>isAr()?ar:en;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- 0. VIEW ISOLATION — remove the Brand Story from the document entirely ----------
+   The original Brand Story engine has already bound its observers to #stage / .step / #fArt / .dim.
+   From here on the view only exists in the DOM while the portal is open.            */
+const mountPoint=document.createComment(' Sky Re Brand Story (02–06) — mounted only through the Home star portal ');
+view.parentNode.insertBefore(mountPoint,view);
+view.hidden=true; view.remove();
+
+/* never re-open from a stale history entry / URL */
+try{ if(history.state&&history.state.skyrePortal) history.replaceState(null,'',location.href); }catch(e){}
+if(PORTAL_HASH_RE.test(location.hash)){ try{history.replaceState(null,'',location.pathname+location.search);}catch(e){} }
+
+/* =====================================================================
+   1. HOME FIELD — background stars · lensing · accretion ring · captures
+   ===================================================================== */
+const F=(()=>{
+  const ctx=field.getContext('2d');
+  let W=1,H=1,cx=0,cy=0,cs=300,R0=60;
+  let stars=[],parts=[],pulses=[];
+  let mx=-1e4,my=-1e4,inside=false,near=0,hover=false,hov=0,spx=0,spy=0;
+  let pull=0,tween=null,nextCap=0,last=0,raf=0,visible=true;
+  const TILT=-.24,KF=.34,ct=Math.cos(TILT),st=Math.sin(TILT);
+
+  function newStar(away){
+    const k=Math.random(), z=k<.58?0:k<.88?1:2;
+    let x=Math.random()*W, y=Math.random()*H;
+    if(away){ for(let i=0;i<8&&Math.hypot(x-cx,y-cy)<cs*.7;i++){x=Math.random()*W;y=Math.random()*H;} }
+    return {x,y,z,r:z===0?.3+Math.random()*.35:z===1?.6+Math.random()*.5:1.05+Math.random()*.6,
+      a:.28+Math.random()*.55,w1:TAU/(9000+Math.random()*14000),p1:Math.random()*TAU,w2:TAU/(2600+Math.random()*4200),p2:Math.random()*TAU,
+      sp:(.0016+z*.0015)*(.7+Math.random()*.6),g:Math.random()<.16,ox:0,oy:0,gl:0,vis:away?0:1,cap:null};
+  }
+  function newPart(){
+    const rr=1.18+Math.random()*1.75;
+    return {rr,th:Math.random()*TAU,sp:(.00038+Math.random()*.0002)*Math.pow(1.2/rr,1.5),drift:.0000035+Math.random()*.000007,s:.5+Math.random()*1.1,a:.25+Math.random()*.6};
+  }
+  function orb(r,th){const x=r*Math.cos(th),y=r*Math.sin(th)*KF;return [cx+x*ct-y*st,cy+x*st+y*ct];}
+
+  function layout(){
+    const hr=hero.getBoundingClientRect(), cr=core.getBoundingClientRect();
+    if(!hr.width||!cr.width) return;
+    const dpr=Math.min(devicePixelRatio||1,2);
+    W=hr.width; H=hr.height;
+    field.width=Math.round(W*dpr); field.height=Math.round(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
+    cx=cr.left-hr.left+cr.width/2; cy=cr.top-hr.top+cr.height/2; cs=cr.width; R0=cs*.2;
+    /* keep the luminous crossing of the background image centred on the star */
+    const bgH=2*Math.max(cy,H-cy);
+    hero.style.setProperty('--bh-bg-top',(cy-bgH/2).toFixed(1)+'px');
+    hero.style.setProperty('--bh-bg-h',bgH.toFixed(1)+'px');
+    hero.style.setProperty('--bh-ox',cx.toFixed(1)+'px');
+    hero.style.setProperty('--bh-oy',(bgH/2).toFixed(1)+'px');
+    hero.style.setProperty('--bh-cy',(cy/H*100).toFixed(2)+'%');
+    const n=Math.round(clamp(W*H/6800,40,230));
+    if(Math.abs(stars.length-n)>n*.25) stars=Array.from({length:n},()=>newStar(false));
+    const pn=W<700?28:48; if(parts.length!==pn) parts=Array.from({length:pn},newPart);
+    if(!raf) frame(performance.now(),true);
+  }
+
+  function starColor(s,x,y,light){
+    let c=s.g?[231,211,166]:[223,233,245];
+    if(light){
+      const v=W>1100?clamp((Math.abs(x-cx)/(W*.5)-.2)/.32,0,1):clamp((Math.abs(y-cy)/H-.1)/.14,0,1);
+      if(v>0){const d=s.g?[148,123,76]:[78,100,132];c=[c[0]+(d[0]-c[0])*v,c[1]+(d[1]-c[1])*v,c[2]+(d[2]-c[2])*v];}
+    }
+    return 'rgb('+(c[0]|0)+','+(c[1]|0)+','+(c[2]|0)+')';
+  }
+
+  function frame(t,still){
+    const dt=still?0:(last?Math.min(50,t-last):16); if(!still) last=t;
+    const sm=k=>1-Math.pow(k,dt/16.7);
+    if(tween){const u=clamp((t-tween.t0)/tween.dur,0,1);pull=tween.from+(tween.to-tween.from)*tween.ease(u);if(u>=1)tween=null;}
+    ctx.clearRect(0,0,W,H);
+    const light=isLight();
+
+    /* pointer → proximity, hover and the star's gentle response */
+    let nt=0,tx=0,ty=0;
+    if(inside){const d=Math.hypot(mx-cx,my-cy);nt=clamp(1-(d-cs*.12)/(cs*.55),0,1);
+      tx=clamp((mx-cx)*.045,-9,9)*nt;ty=clamp((my-cy)*.045,-9,9)*nt;}
+    near+=(nt-near)*sm(.92); hov+=((hover?1:0)-hov)*sm(.9);
+    spx+=(tx-spx)*sm(.92); spy+=(ty-spy)*sm(.92);
+    btn.style.setProperty('--bh-px',spx.toFixed(2)+'px'); btn.style.setProperty('--bh-py',spy.toFixed(2)+'px');
+    const P=pull, E=Math.min(1.6,Math.max(near*.55,hov)+P);
+    const R=R0*(1+P*1.1), rl=R0*1.25*(1+P*.4);
+
+    /* --- background stars --- */
+    const RP=150,RP2=RP*RP;
+    for(const s of stars){
+      if(!reduce&&dt){
+        if(!s.cap){s.x-=.94*s.sp*dt;s.y-=.34*s.sp*dt;
+          if(s.x<-6)s.x+=W+12;else if(s.x>W+6)s.x-=W+12;if(s.y<-6)s.y+=H+12;else if(s.y>H+6)s.y-=H+12;}
+        if(s.vis<1)s.vis=Math.min(1,s.vis+dt/2600);
+      }
+      if(s.cap){drawCapture(s,t);continue;}
+      let a=s.a*(.6+.25*Math.sin(t*s.w1+s.p1)+.15*Math.sin(t*s.w2+s.p2));
+      let gx=0,gy=0,gt=0;
+      if(inside){const dx=s.x-mx,dy=s.y-my;
+        if(dx<RP&&dx>-RP&&dy<RP&&dy>-RP){const d2=dx*dx+dy*dy;
+          if(d2<RP2&&d2>.01){const f=1-d2/RP2,f2=f*f,d=Math.sqrt(d2),m=5*f2*(.5+s.z*.35);gt=f2;gx=dx/d*m;gy=dy/d*m;}}}
+      const k=sm(.955); s.ox+=(gx-s.ox)*k; s.oy+=(gy-s.oy)*k; s.gl+=(gt-s.gl)*Math.min(1,k*1.4);
+      let x=s.x+s.ox,y=s.y+s.oy;
+      const dx=x-cx,dy=y-cy,d=Math.sqrt(dx*dx+dy*dy)||.001;
+      let sx=0,sy=0,streak=false;
+      if(P>0){ /* gravitational pull — spiral in with light streaks */
+        const e=easeIn(P),ang=e*(1.1+s.z*.4)*(d<cs?1.4:1),ca=Math.cos(ang),sa=Math.sin(ang),sc=1-e*.985;
+        const nx=(dx*ca-dy*sa)*sc,ny=(dx*sa+dy*ca)*sc;
+        sx=cx+nx*(1+.22*e);sy=cy+ny*(1+.22*e);x=cx+nx;y=cy+ny;a=Math.min(1,a+e*.55);streak=true;
+      }else{ /* gravitational lensing — light bends around the portal (Einstein ring) */
+        const dd=(d+Math.sqrt(d*d+4*rl*rl))/2,m=dd/d;x=cx+dx*m;y=cy+dy*m;
+        if(d<rl*2.4)a*=1+.9*Math.exp(-d/rl);
+      }
+      a+=(1-a)*.55*s.gl; a*=s.vis; if(a<=.01)continue;
+      const col=starColor(s,x,y,light), rr=s.r*(1+.6*s.gl);
+      ctx.globalAlpha=Math.min(1,a*(light?1.15:1));
+      if(streak){ctx.strokeStyle=col;ctx.lineWidth=rr*1.2;ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(x,y);ctx.stroke();}
+      ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,rr,0,TAU);ctx.fill();
+      if(s.gl>.04){const gr=rr*(4+7*s.gl),g=ctx.createRadialGradient(x,y,0,x,y,gr);
+        g.addColorStop(0,light?'rgba(148,123,76,.55)':'rgba(255,248,232,.6)');g.addColorStop(1,'rgba(255,248,232,0)');
+        ctx.globalAlpha=s.gl*.8*s.vis;ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,gr,0,TAU);ctx.fill();}
+    }
+    ctx.globalAlpha=1;
+
+    /* --- the portal --- */
+    let g=ctx.createRadialGradient(cx,cy,0,cx,cy,R*3.3);
+    g.addColorStop(0,'rgba(230,211,168,'+(.1+.12*E).toFixed(3)+')');g.addColorStop(.36,'rgba(135,167,198,'+(.05+.06*E).toFixed(3)+')');g.addColorStop(1,'rgba(135,167,198,0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,R*3.3,0,TAU);ctx.fill();
+    /* event-horizon shadow — the star stays luminous at its heart */
+    g=ctx.createRadialGradient(cx,cy,0,cx,cy,R*1.12);
+    const sh=(.86-.3*P);g.addColorStop(0,'rgba(1,9,20,'+sh.toFixed(3)+')');g.addColorStop(.62,'rgba(2,12,26,'+(sh*.9).toFixed(3)+')');
+    g.addColorStop(.86,'rgba(4,18,36,'+(sh*.55).toFixed(3)+')');g.addColorStop(1,'rgba(4,18,36,0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,R*1.12,0,TAU);ctx.fill();
+    /* inner lensed light just inside the photon ring */
+    g=ctx.createRadialGradient(cx,cy,R*.7,cx,cy,R);g.addColorStop(0,'rgba(135,167,198,0)');g.addColorStop(1,'rgba(135,167,198,'+(.16+.1*E).toFixed(3)+')');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,R,0,TAU);ctx.fill();
+    /* accretion disc */
+    ctx.lineWidth=1;
+    for(let i=0;i<4;i++){const rr=R*(1.3+i*.38);ctx.strokeStyle='rgba(194,165,111,'+((.13-.026*i)*(1+E*.9)).toFixed(3)+')';
+      ctx.beginPath();ctx.ellipse(cx,cy,rr,rr*KF,TILT,0,TAU);ctx.stroke();}
+    /* inward gravitational ripples */
+    for(let i=0;i<3;i++){const ph=((t*.00016*(1+E))+i/3)%1,rr=R*(1.25+2.3*(1-ph)),al=Math.sin(ph*Math.PI)*(.045+.12*E);
+      ctx.strokeStyle='rgba(230,211,168,'+al.toFixed(3)+')';ctx.beginPath();ctx.arc(cx,cy,rr,0,TAU);ctx.stroke();}
+    /* Einstein halo */
+    ctx.lineWidth=5;ctx.strokeStyle='rgba(135,167,198,'+(.09+.09*E).toFixed(3)+')';ctx.beginPath();ctx.arc(cx,cy,R*1.36,0,TAU);ctx.stroke();
+    /* photon ring with a slowly travelling bright side */
+    ctx.save();ctx.shadowBlur=16+14*E;ctx.shadowColor='rgba(230,211,168,.9)';ctx.lineWidth=1.1+E*.9;
+    ctx.strokeStyle='rgba(255,244,222,'+(.16+.14*E).toFixed(3)+')';ctx.beginPath();ctx.arc(cx,cy,R,0,TAU);ctx.stroke();ctx.restore();
+    const N=72,rot=t*.00011*(1+E*1.6);ctx.lineWidth=1.3+E*1.1;
+    for(let i=0;i<N;i++){const a0=i/N*TAU,b=.5+.5*Math.cos(a0-rot);
+      ctx.strokeStyle='rgba(255,244,222,'+((.16+.5*b)*(.7+.45*E)).toFixed(3)+')';ctx.beginPath();ctx.arc(cx,cy,R,a0,a0+TAU/N+.012);ctx.stroke();}
+    /* orbiting particles */
+    const spd=1+E*.9+P*5;
+    for(const p of parts){
+      if(!reduce&&dt){p.th+=p.sp*dt*spd;p.rr-=p.rr*p.drift*dt*(1+P*40);if(p.rr<1.06)Object.assign(p,newPart(),{rr:2.6+Math.random()*.4});}
+      const r=p.rr*R0*(1+P*.2),[x,y]=orb(r,p.th),[x2,y2]=orb(r,p.th-p.sp*170*spd),front=Math.sin(p.th)>0;
+      ctx.strokeStyle='rgba(240,226,196,'+(p.a*(front?1:.5)*(.55+.45*Math.min(1,E))).toFixed(3)+')';
+      ctx.lineWidth=p.s;ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x,y);ctx.stroke();
+    }
+    /* light pulses */
+    for(let i=pulses.length-1;i>=0;i--){const p=pulses[i],u=(t-p.t0)/(p.big?1400:1150);
+      if(u>=1||u<0){if(u>=1)pulses.splice(i,1);continue;}
+      const rr=R0*(.5+(p.big?3.6:2.2)*easeOut(u));
+      ctx.lineWidth=p.big?2:1.4;ctx.strokeStyle='rgba(255,248,232,'+((p.big?.65:.5)*(1-u)).toFixed(3)+')';ctx.beginPath();ctx.arc(cx,cy,rr,0,TAU);ctx.stroke();
+      g=ctx.createRadialGradient(cx,cy,0,cx,cy,R0*1.1);g.addColorStop(0,'rgba(255,250,240,'+(.38*(1-u)).toFixed(3)+')');g.addColorStop(1,'rgba(255,250,240,0)');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,R0*1.1,0,TAU);ctx.fill();}
+
+    /* occasional gravitational capture of a single star */
+    if(!reduce&&dt&&P===0&&portal.state==='closed'&&t>nextCap){
+      nextCap=t+5200+Math.random()*4200;
+      const pool=stars.filter(s=>!s.cap&&s.z>=1&&s.vis>=1&&Math.hypot(s.x-cx,s.y-cy)>Math.max(180,cs*.62));
+      if(pool.length){const s=pool[(Math.random()*pool.length)|0];
+        s.cap={t0:t,dur:2600+Math.random()*1300,x0:s.x+s.ox,y0:s.y+s.oy,dir:Math.random()<.5?-1:1,spin:.9+Math.random()*.7,h:[]};}
+    }
+  }
+
+  function drawCapture(s,t){
+    const c=s.cap,u=clamp((t-c.t0)/c.dur,0,1),e=u*u*(3-2*u)*.35+easeIn(u)*.65;
+    const dx0=c.x0-cx,dy0=c.y0-cy,r0=Math.hypot(dx0,dy0),th0=Math.atan2(dy0,dx0);
+    const r=r0*(1-e)+R0*.1*e,th=th0+c.dir*c.spin*Math.pow(e,1.15),x=cx+r*Math.cos(th),y=cy+r*Math.sin(th);
+    c.h.unshift([x,y]);if(c.h.length>16)c.h.pop();
+    ctx.lineCap='round';
+    for(let i=0;i<c.h.length-1;i++){const a=c.h[i],b=c.h[i+1];
+      ctx.strokeStyle='rgba(240,226,196,'+(.5*(1-i/16)*(.4+.6*u)).toFixed(3)+')';ctx.lineWidth=(s.r+.6)*(1-i/16);
+      ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke();}
+    ctx.lineCap='butt';
+    ctx.globalAlpha=Math.min(1,.6+.4*u);ctx.fillStyle='#fff8ea';ctx.beginPath();ctx.arc(x,y,s.r*(1+u*.8),0,TAU);ctx.fill();ctx.globalAlpha=1;
+    if(u>=1){pulses.push({t0:t});Object.assign(s,newStar(true));}
+  }
+
+  function want(){return visible&&!document.hidden&&!reduce&&portal.state!=='open';}
+  function loop(t){raf=0;frame(t,false);if(want())raf=requestAnimationFrame(loop);}
+  function kick(){if(want()){if(!raf){last=0;raf=requestAnimationFrame(loop);}}else if(!raf)frame(performance.now(),true);}
+
+  hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;inside=true;},{passive:true});
+  hero.addEventListener('pointerleave',()=>{inside=false;});
+  const setHover=v=>{hover=v;core.classList.toggle('is-hover',v);};
+  btn.addEventListener('pointerenter',()=>setHover(true));
+  btn.addEventListener('pointerleave',()=>setHover(false));
+  btn.addEventListener('focus',()=>setHover(true));
+  btn.addEventListener('blur',()=>setHover(false));
+  new IntersectionObserver(es=>{visible=es[es.length-1].isIntersecting;kick();}).observe(hero);
+  document.addEventListener('visibilitychange',kick);
+  if(window.ResizeObserver) new ResizeObserver(()=>layout()).observe(hero);
+  addEventListener('resize',layout);
+  addEventListener('load',layout);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+
+  return {layout,kick,
+    burst(big){pulses.push({t0:performance.now(),big:!!big});kick();},
+    pullTo(to,dur,ease){if(reduce){pull=0;return;}tween={from:pull,to,t0:performance.now(),dur,ease};kick();},
+    setPull(v){tween=null;pull=v;},
+    reset(){tween=null;pull=0;for(const s of stars){s.ox=s.oy=0;}}};
+})();
+
+/* =====================================================================
+   2. VIEW STARFIELD — interior sky of the portal (runs only while mounted)
+   ===================================================================== */
+const S=(()=>{
+  const cv=$('#bsSky',view);if(!cv)return{start(){},stop(){},warpOut(){}};
+  const ctx=cv.getContext('2d');let W=1,H=1,stars=[],raf=0,on=false,dir=1,w0=0,last=0,mx=-1e4,my=-1e4;
+  function size(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+    const n=Math.round(clamp(W*H/5600,50,300));
+    if(Math.abs(stars.length-n)>n*.2)stars=Array.from({length:n},()=>{const z=Math.random();return{x:Math.random()*W,y:Math.random()*H,r:z<.6?.3+Math.random()*.4:.7+Math.random()*.8,
+      a:.2+Math.random()*.6,w:TAU/(4000+Math.random()*9000),p:Math.random()*TAU,sp:.002+Math.random()*.004,g:Math.random()<.15,gl:0};});}
+  function draw(t){
+    const dt=last?Math.min(50,t-last):16;last=t;ctx.clearRect(0,0,W,H);
+    const light=isLight(),c={x:W/2,y:H*.42};
+    let w=0;if(dir===1)w=easeOut(Math.max(0,1-(t-w0)/1500))*(t-w0<1500?1:0);else w=easeIn(Math.min(1,(t-w0)/950));
+    for(const s of stars){
+      if(!reduce){s.x-=s.sp*dt*.6;s.y-=s.sp*dt*.22;if(s.x<-4)s.x+=W+8;if(s.y<-4)s.y+=H+8;}
+      let a=s.a*(.65+.35*Math.sin(t*s.w+s.p));
+      const qx=s.x-mx,qy=s.y-my,q2=qx*qx+qy*qy;const f=q2<19600?1-q2/19600:0;s.gl+=(f*f-s.gl)*.08;a+=(1-a)*.5*s.gl;
+      let x=s.x,y=s.y,x2=x,y2=y;
+      if(w>0){const dx=x-c.x,dy=y-c.y;
+        if(dir===1){x2=x+dx*.38*w*w;y2=y+dy*.38*w*w;}else{const k=1-.62*w;x=c.x+dx*k;y=c.y+dy*k;x2=x+dx*.25*w;y2=y+dy*.25*w;}}
+      const col=light?(s.g?'rgba(148,123,76,':'rgba(9,29,60,'):(s.g?'rgba(231,211,166,':'rgba(223,233,245,');
+      const al=Math.min(1,a*(light?.55:1));
+      if(w>.02){ctx.strokeStyle=col+al+')';ctx.lineWidth=s.r;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x2,y2);ctx.stroke();}
+      ctx.fillStyle=col+al+')';ctx.beginPath();ctx.arc(x,y,s.r*(1+.7*s.gl),0,TAU);ctx.fill();
+    }
+  }
+  function loop(t){raf=0;if(!on)return;draw(t);if(!reduce&&!document.hidden)raf=requestAnimationFrame(loop);}
+  view.addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+  addEventListener('resize',()=>{if(on){size();if(reduce)draw(performance.now());}});
+  document.addEventListener('visibilitychange',()=>{if(on&&!document.hidden&&!raf)raf=requestAnimationFrame(loop);});
+  return{
+    start(warp){on=true;size();dir=1;w0=warp&&!reduce?performance.now():-1e9;last=0;if(!raf)raf=requestAnimationFrame(loop);},
+    warpOut(){dir=-1;w0=performance.now();},
+    stop(){on=false;if(raf)cancelAnimationFrame(raf);raf=0;}
+  };
+})();
+
+/* =====================================================================
+   3. IRIS — the luminous ring that opens / contracts the portal
+   ===================================================================== */
+let irisCv=null;
+function iris(o){
+  if(irisCv){irisCv.remove();irisCv=null;}
+  const cv=document.createElement('canvas');cv.className='bh-iris';cv.setAttribute('aria-hidden','true');body.appendChild(cv);irisCv=cv;
+  const W=innerWidth,H=innerHeight,d=Math.min(devicePixelRatio||1,2);cv.width=W*d;cv.height=H*d;
+  const c=cv.getContext('2d');c.setTransform(d,0,0,d,0,0);
+  const rays=Array.from({length:44},(_,i)=>({a:i/44*TAU+Math.random()*.1,l:.4+Math.random(),o:Math.random()}));
+  const t0=performance.now();
+  (function f(now){
+    if(cv!==irisCv)return;
+    const u=clamp((now-t0)/o.dur,0,1),e=o.ease(u),r=Math.max(0,o.from+(o.to-o.from)*e),I=Math.sin(Math.PI*u);
+    view.style.clipPath='circle('+r.toFixed(1)+'px at '+o.x.toFixed(1)+'px '+o.y.toFixed(1)+'px)';
+    c.clearRect(0,0,W,H);
+    if(r>.5){
+      let g=c.createRadialGradient(o.x,o.y,Math.max(0,r-2),o.x,o.y,r+80);
+      g.addColorStop(0,'rgba(230,211,168,'+(.32*I+.06).toFixed(3)+')');g.addColorStop(.3,'rgba(135,167,198,'+(.15*I).toFixed(3)+')');g.addColorStop(1,'rgba(135,167,198,0)');
+      c.fillStyle=g;c.beginPath();c.arc(o.x,o.y,r+80,0,TAU);c.arc(o.x,o.y,Math.max(0,r-2),0,TAU,true);c.fill();
+      g=c.createRadialGradient(o.x,o.y,Math.max(0,r-46),o.x,o.y,r);g.addColorStop(0,'rgba(255,250,236,0)');g.addColorStop(1,'rgba(255,250,236,'+(.2*I+.04).toFixed(3)+')');
+      c.fillStyle=g;c.beginPath();c.arc(o.x,o.y,r,0,TAU);c.arc(o.x,o.y,Math.max(0,r-46),0,TAU,true);c.fill();
+      c.save();c.shadowBlur=28;c.shadowColor='rgba(230,211,168,.95)';c.strokeStyle='rgba(255,250,236,'+(.5+.45*I).toFixed(3)+')';
+      c.lineWidth=1.5+1.5*I;c.beginPath();c.arc(o.x,o.y,r,0,TAU);c.stroke();c.restore();
+      c.lineWidth=1;
+      for(const ray of rays){const a=ray.a+u*.55*o.spin,len=(16+74*ray.l)*I,r1=r+6+ray.o*22,r2=r1+len;
+        c.strokeStyle='rgba(230,211,168,'+(.3*I*ray.l).toFixed(3)+')';c.beginPath();
+        c.moveTo(o.x+Math.cos(a)*r1,o.y+Math.sin(a)*r1);c.lineTo(o.x+Math.cos(a)*r2,o.y+Math.sin(a)*r2);c.stroke();}
+    }
+    if(u<1)requestAnimationFrame(f);else{cv.remove();if(irisCv===cv)irisCv=null;o.done&&o.done();}
+  })(t0);
+}
+
+/* =====================================================================
+   4. PORTAL STATE MACHINE — closed · opening · open · closing
+   ===================================================================== */
+const portal={state:'closed'};
+let homeY=0,pending=null,queued=null,ignorePop=false,ignoreTimer=0,timers=[],bsIO=null;
+const later=(fn,ms)=>{const id=setTimeout(fn,ms);timers.push(id);return id;};
+const starPos=()=>{const r=btn.getBoundingClientRect();return{x:r.left+r.width/2,y:r.top+r.height/2};};
+const reach=c=>Math.hypot(Math.max(c.x,innerWidth-c.x),Math.max(c.y,innerHeight-c.y))+70;
+const jump=y=>{try{scrollTo({top:y,left:0,behavior:'instant'});}catch(e){scrollTo(0,y);}};
+
+function lock(){html.style.setProperty('--bs-sbw',Math.max(0,innerWidth-html.clientWidth)+'px');html.classList.add('bs-lock');}
+function unlock(){html.classList.remove('bs-lock');html.style.removeProperty('--bs-sbw');}
+function mount(){
+  mountPoint.parentNode.insertBefore(view,mountPoint);view.hidden=false;view.scrollTop=0;
+  steps.forEach((s,i)=>s.classList.toggle('on',i===0));if(stage)stage.dataset.step='0';setDot(0,'02');
+  $$('.bs-intro .rv,.story-head .rv',view).forEach(el=>el.classList.remove('in'));
+  if(bsIO)bsIO.disconnect();
+  bsIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');bsIO.unobserve(e.target);}}),{root:view,threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  $$('.rv,#geoArt',view).forEach(el=>{if(!el.closest('.bs-intro,.story-head'))bsIO.observe(el);});
+  syncLabels();
+}
+function unmount(){
+  if(bsIO){bsIO.disconnect();bsIO=null;}
+  view.classList.remove('bs-arrive','bs-leave');view.style.clipPath='';view.style.opacity='';view.style.transition='';
+  view.hidden=true;view.remove();
+}
+function revealHead(){$$('.bs-intro .rv,.story-head .rv',view).forEach((el,i)=>later(()=>el.classList.add('in'),60+i*150));}
+function clearNavActive(){$$('[data-nav]').forEach(el=>el.classList.remove('active'));}
+
+function open(){
+  if(portal.state!=='closed'||body.classList.contains('is-loading'))return;
+  portal.state='opening';pending=null;homeY=scrollY;lock();clearNavActive();
+  try{history.scrollRestoration='manual';history.pushState({skyrePortal:1},'',location.href);}catch(e){}
+  if(reduce){
+    mount();S.start(false);view.style.opacity='0';view.style.transition='opacity .35s ease';
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{view.style.opacity='1';}));
+    later(finishOpen,380);return;
+  }
+  /* Phase 01 · activation */
+  btn.classList.remove('bh-fire');void btn.offsetWidth;btn.classList.add('bh-fire');F.burst(true);
+  /* Phase 02 · gravitational pull */
+  later(()=>{hero.classList.add('bh-pulling');F.pullTo(1,1550,easeIn);},160);
+  /* Phase 03 · portal opening — the view grows out of the star */
+  later(()=>{
+    const c=starPos();mount();
+    view.style.setProperty('--bs-ox',c.x.toFixed(1)+'px');view.style.setProperty('--bs-oy',c.y.toFixed(1)+'px');
+    view.style.clipPath='circle(0px at '+c.x.toFixed(1)+'px '+c.y.toFixed(1)+'px)';
+    view.classList.add('bs-arrive');S.start(true);
+    /* Phase 04 · entering → Phase 05 · arrival */
+    iris({x:c.x,y:c.y,from:0,to:reach(c),dur:1150,ease:easeIO,spin:1,done:finishOpen});
+  },980);
+}
+function finishOpen(){
+  view.style.clipPath='';view.style.opacity='';view.style.transition='';
+  html.classList.add('bs-open');if(main)main.inert=true;
+  hero.classList.add('bh-notrans');hero.classList.remove('bh-pulling');btn.classList.remove('bh-fire');F.reset();
+  void hero.offsetWidth;requestAnimationFrame(()=>hero.classList.remove('bh-notrans'));
+  revealHead();later(()=>view.classList.remove('bs-arrive'),1700);
+  portal.state='open';clearNavActive();onViewScroll();
+  try{view.focus({preventScroll:true});}catch(e){}
+  if(pending){const p=pending;pending=null;close(p);}
+}
+
+function close(o){
+  o=o||{};
+  if(portal.state==='closed'){if(o.target&&o.target!=='#top'){const el=safeTarget(o.target);if(el)el.scrollIntoView({block:'start'});}return;}
+  if(portal.state==='opening'){pending=o;return;}
+  if(portal.state==='closing'){queued=o;return;}
+  portal.state='closing';
+  if(!o.viaPop&&history.state&&history.state.skyrePortal){
+    ignorePop=true;clearTimeout(ignoreTimer);ignoreTimer=setTimeout(()=>{ignorePop=false;},900);
+    try{history.back();}catch(e){ignorePop=false;}
+  }
+  const toHome=!o.target||o.target==='#top'||o.target==='#home-hero';
+  const targetEl=toHome?null:safeTarget(o.target);
+  /* restore the regular page underneath the view, at the destination */
+  html.classList.remove('bs-open');if(main)main.inert=false;
+  if(toHome)jump(o.target?0:homeY);else if(targetEl)targetEl.scrollIntoView({behavior:'instant',block:'start'});
+  refreshChapter();dispatchEvent(new Event('scroll'));
+  if(toHome&&!reduce){
+    hero.classList.add('bh-notrans','bh-pulling');void hero.offsetWidth;hero.classList.remove('bh-notrans');
+    F.setPull(.6);F.pullTo(0,1350,easeOut);F.kick();
+    later(()=>hero.classList.remove('bh-pulling'),380);
+  }
+  if(reduce){
+    view.style.transition='opacity .3s ease';view.style.opacity='0';
+    later(()=>finishClose(o,toHome,targetEl),320);return;
+  }
+  const c=toHome?starPos():{x:innerWidth/2,y:innerHeight/2};
+  view.classList.add('bs-leave');S.warpOut();
+  iris({x:c.x,y:c.y,from:reach(c),to:0,dur:1050,ease:easeIO,spin:-1,done:()=>finishClose(o,toHome,targetEl)});
+}
+function finishClose(o,toHome,targetEl){
+  unmount();S.stop();unlock();if(irisCv){irisCv.remove();irisCv=null;}
+  hero.classList.remove('bh-pulling','bh-notrans');
+  portal.state='closed';
+  try{history.scrollRestoration='auto';}catch(e){}
+  if(!toHome&&o.target)setTimeout(()=>{try{history.replaceState(null,'',o.target);}catch(e){}},80);
+  if(toHome){F.burst(false);try{btn.focus({preventScroll:true});}catch(e){}}
+  else if(targetEl){if(!targetEl.hasAttribute('tabindex')){targetEl.setAttribute('tabindex','-1');targetEl.addEventListener('blur',()=>targetEl.removeAttribute('tabindex'),{once:true});}
+    try{targetEl.focus({preventScroll:true});}catch(e){}}
+  refreshChapter();dispatchEvent(new Event('scroll'));F.kick();
+  if(queued){const q=queued;queued=null;if(q.target)close(q);}
+}
+function safeTarget(h){
+  if(!h||h.length<2||PORTAL_HASH_RE.test(h))return null;
+  try{const el=document.querySelector(h);return el&&!view.contains(el)?el:null;}catch(e){return null;}
+}
+
+/* ---------- 5. chapter badge, step progression & portal scroll ---------- */
+function refreshChapter(){
+  const secs=$$('main [data-ch]'),y=innerHeight*.4;let c=secs[0];
+  for(const s of secs){if(s.getBoundingClientRect().top<=y)c=s;}
+  const n=$('#chapN'),l=$('#chapL');
+  if(c&&n&&l){n.textContent=c.dataset.ch;l.innerHTML='<span>'+esc(isAr()?c.dataset.ar:c.dataset.en)+'</span>';}
+}
+function stepName(i){const h=steps[i]&&steps[i].querySelector(isAr()?'h3 .ar':'h3 .en');return h&&h.firstChild?h.firstChild.textContent.trim():'';}
+function activeBsSec(){
+  const y=innerHeight*.42;let cur=bsSecs[0];
+  for(const s of bsSecs){if(s.getBoundingClientRect().top<=y)cur=s;}
+  return cur;
+}
+function onViewScroll(){
+  if(portal.state!=='open'&&portal.state!=='opening')return;
+  const vh=innerHeight, mid=vh*.5;
+  /* reveal any .rv / #geoArt currently visible inside view */
+  $$('.rv:not(.in),#geoArt:not(.in)',view).forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top<vh*.94&&r.bottom>0)el.classList.add('in');
+  });
+  const sec=activeBsSec(), ch=sec?sec.dataset.bsCh:'02';
+  if(ch==='02'&&steps.length&&stage){
+    let best=0,bd=1e9;
+    steps.forEach((s,i)=>{const r=s.getBoundingClientRect(),d=Math.abs((r.top+r.bottom)/2-mid);if(d<bd){bd=d;best=i;}});
+    steps.forEach((s,i)=>s.classList.toggle('on',i===best));
+    if(stage.dataset.step!==String(best))stage.dataset.step=String(best);
+    setDot(best,'02');
+  }else{
+    setDot(+(stage&&stage.dataset.step)||0,ch);
+  }
+  updBadge(sec);
+}
+function updBadge(sec){
+  if(portal.state!=='open'&&portal.state!=='opening')return;
+  sec=sec||activeBsSec();
+  const ch=sec?sec.dataset.bsCh:'02';
+  const n=$('#chapN'),l=$('#chapL');
+  if(ch==='02'){
+    const i=+(stage&&stage.dataset.step)||0;
+    if(n)n.textContent='02';if(l)l.innerHTML='<span>'+esc(stepName(i))+'</span>';
+  }else if(sec){
+    if(n)n.textContent=ch;if(l)l.innerHTML='<span>'+esc(isAr()?sec.dataset.ar:sec.dataset.en)+'</span>';
+  }
+}
+function setDot(i,ch){
+  ch=ch||'02';
+  const inSym=ch==='02';
+  dots.forEach((d,j)=>{const on=inSym&&j===i;d.classList.toggle('on',on);d.setAttribute('aria-current',on?'step':'false');});
+  chBtns.forEach(b=>{const on=!inSym&&b.dataset.bsChBtn===ch;b.classList.toggle('on',on);b.setAttribute('aria-current',on?'true':'false');});
+  if(countEl){
+    countEl.textContent=inSym?(String(i+1).padStart(2,'0')+' / '+String(steps.length).padStart(2,'0')):('CH '+ch);
+  }
+}
+function syncLabels(){
+  btn.setAttribute('aria-label',T('Explore our Brand Story','اكتشف قصة هويتنا'));
+  view.setAttribute('aria-label',T('Sky Re — The Brand Story','سكاي ري — قصة العلامة'));
+  $$('.bs-return',view).forEach(b=>b.setAttribute('aria-label',T('Return to Home','العودة للرئيسية')));
+  const dn=$('.bs-dots',view);if(dn)dn.setAttribute('aria-label',T('Brand Story chapters','فصول قصة العلامة'));
+  dots.forEach((d,i)=>d.setAttribute('aria-label',String(i+1).padStart(2,'0')+' · '+stepName(i)));
+  chBtns.forEach(b=>{
+    const sec=$(b.dataset.bsGo,view);
+    if(sec)b.setAttribute('aria-label',b.dataset.bsChBtn+' · '+(isAr()?sec.dataset.ar:sec.dataset.en));
+  });
+}
+if(stage)new MutationObserver(()=>{const sec=activeBsSec();setDot(+stage.dataset.step||0,sec?sec.dataset.bsCh:'02');updBadge(sec);}).observe(stage,{attributes:true,attributeFilter:['data-step']});
+view.addEventListener('scroll',onViewScroll,{passive:true});
+dots.forEach((d,i)=>d.addEventListener('click',()=>{
+  const s=steps[i];if(!s||portal.state!=='open')return;
+  const vr=view.getBoundingClientRect(),sr=s.getBoundingClientRect();
+  view.scrollTo({top:Math.max(0,view.scrollTop+sr.top-vr.top-(view.clientHeight-sr.height)/2),behavior:reduce?'auto':'smooth'});
+}));
+chBtns.forEach(b=>b.addEventListener('click',()=>{
+  const sec=$(b.dataset.bsGo,view);if(!sec||portal.state!=='open')return;
+  const vr=view.getBoundingClientRect(),sr=sec.getBoundingClientRect();
+  view.scrollTo({top:Math.max(0,view.scrollTop+sr.top-vr.top-84),behavior:reduce?'auto':'smooth'});
+}));
+
+/* ---------- 6. wiring ---------- */
+btn.addEventListener('click',e=>{e.preventDefault();open();});
+$$('[data-bs-return]',view).forEach(b=>b.addEventListener('click',()=>close({})));
+
+/* any in-page link while the portal is active → exit, then go there (main nav, drawer, view links) */
+document.addEventListener('click',e=>{
+  const a=e.target&&e.target.closest?e.target.closest('a[href^="#"]'):null;if(!a)return;
+  const h=a.getAttribute('href');
+  if(PORTAL_HASH_RE.test(h)){e.preventDefault();return;}
+  if(portal.state==='closed')return;
+  e.preventDefault();close({target:h.length>1?h:'#top'});
+},true);
+
+addEventListener('popstate',e=>{
+  if(ignorePop){ignorePop=false;clearTimeout(ignoreTimer);return;}
+  const st=e.state;
+  if(st&&st.skyrePortal){if(portal.state==='closed'){try{history.replaceState(null,'',location.href);}catch(_){}}return;}
+  if(portal.state==='open'||portal.state==='opening')close({viaPop:true});
+});
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Escape'||portal.state!=='open')return;
+  const modal=$('#corpModal.open'),drawer=$('#mobDrawer.open');if(modal||drawer)return;
+  close({});
+});
+const langBtn=$('#langBtn');
+if(langBtn)langBtn.addEventListener('click',()=>{setTimeout(()=>{syncLabels();updBadge();F.layout();},40);});
+addEventListener('resize',()=>{if(portal.state==='open')clearNavActive();});
+addEventListener('scroll',()=>{if(portal.state==='open'){updBadge();clearNavActive();}},{passive:true});
+
+syncLabels();F.layout();F.kick();
+
+/* lightweight hook for QA / analytics — no ability to bypass the star */
+Object.defineProperty(window,'SkyRePortal',{value:Object.freeze({get state(){return portal.state;},get mounted(){return view.isConnected;}})});
 })();
 
 </script>
